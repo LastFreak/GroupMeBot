@@ -1,0 +1,869 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>CkSoftware.GroupMe.Sdk.Groups</name>
+    </assembly>
+    <members>
+        <member name="T:CkSoftware.GroupMe.Sdk.Groups.Commands.CreateGroupCommand">
+            <summary>
+            Create group command (GroupMe documentation: <see href="https://dev.groupme.com/docs/v3#groups_create" />).
+            </summary>
+        </member>
+        <member name="M:CkSoftware.GroupMe.Sdk.Groups.Commands.CreateGroupCommand.#ctor(System.String)">
+            <summary>
+            Instantiates a new <see cref="T:CkSoftware.GroupMe.Sdk.Groups.Commands.CreateGroupCommand"/> with the given groupName.
+            </summary>
+            <param name="groupName">The name of the group to create.</param>
+        </member>
+        <member name="M:CkSoftware.GroupMe.Sdk.Groups.Commands.CreateGroupCommand.OpenForSharing">
+            <summary>
+            Defines that the group is open for sharing / free to join.
+            </summary>
+            <returns>The extended <see cref="T:CkSoftware.GroupMe.Sdk.Groups.Commands.CreateGroupCommand"/>.</returns>
+        </member>
+        <member name="M:CkSoftware.GroupMe.Sdk.Groups.Commands.CreateGroupCommand.WithDescription(System.String)">
+            <summary>
+            Adds the given description to the new group.
+            </summary>
+            <param name="description">The description of the new group.</param>
+            <returns>The extended <see cref="T:CkSoftware.GroupMe.Sdk.Groups.Commands.CreateGroupCommand"/>.</returns>
+        </member>
+        <member name="M:CkSoftware.GroupMe.Sdk.Groups.Commands.CreateGroupCommand.WithImage(System.String)">
+            <summary>
+            Defines a image for the new group.
+            </summary>
+            <param name="imageUrl">The image url of the new group. Must be a GroupMe ImagingService image-url according to the GroupMe API documentation.</param>
+            <returns>The extended <see cref="T:CkSoftware.GroupMe.Sdk.Groups.Commands.CreateGroupCommand"/>.</returns>
+        </member>
+        <member name="M:CkSoftware.GroupMe.Sdk.Groups.Commands.CreateGroupCommand.WithImage(CkSoftware.GroupMe.Sdk.Core.Dao.PictureData)">
+            <summary>
+            Defines a image for the new group.
+            </summary>
+            <param name="imageData">The image data for the group-image.</param>
+            <returns>The extended <see cref="T:CkSoftware.GroupMe.Sdk.Groups.Commands.CreateGroupCommand"/>.</returns>
+        </member>
+        <member name="P:CkSoftware.GroupMe.Sdk.Groups.Commands.CreateGroupCommand.CommandExecuted">
+            <summary>
+            Defines if the command is executed once.
+            </summary>
+        </member>
+        <member name="P:CkSoftware.GroupMe.Sdk.Groups.Commands.CreateGroupCommand.CommandName">
+            <summary>
+            The name of the command to be executed.
+            </summary>
+        </member>
+        <member name="P:CkSoftware.GroupMe.Sdk.Groups.Commands.CreateGroupCommand.HttpMethod">
+            <summary>
+            The http method to execute this command.
+            </summary>
+        </member>
+        <member name="P:CkSoftware.GroupMe.Sdk.Groups.Commands.CreateGroupCommand.Parameters">
+            <summary>
+            The parameters which should be used on command execution.
+            </summary>
+        </member>
+        <member name="T:CkSoftware.GroupMe.Sdk.Groups.Commands.DestroyGroupCommand">
+            <summary>
+            Destroy group command (GroupMe documentation: <see href="https://dev.groupme.com/docs/v3#groups_destroy" />).
+            </summary>
+        </member>
+        <member name="M:CkSoftware.GroupMe.Sdk.Groups.Commands.DestroyGroupCommand.#ctor(System.String)">
+            <summary>
+            Instantiate a new <see cref="T:CkSoftware.GroupMe.Sdk.Groups.Commands.DestroyGroupCommand"/> for the given group id.
+            </summary>
+            <param name="groupId">The id of the group to destroy.</param>
+        </member>
+        <member name="P:CkSoftware.GroupMe.Sdk.Groups.Commands.DestroyGroupCommand.CommandExecuted">
+            <summary>
+            Defines if the command is executed once.
+            </summary>
+        </member>
+        <member name="P:CkSoftware.GroupMe.Sdk.Groups.Commands.DestroyGroupCommand.CommandName">
+            <summary>
+            The name of the command to be executed.
+            </summary>
+        </member>
+        <member name="P:CkSoftware.GroupMe.Sdk.Groups.Commands.DestroyGroupCommand.HttpMethod">
+            <summary>
+            The http method to execute this command.
+            </summary>
+        </member>
+        <member name="P:CkSoftware.GroupMe.Sdk.Groups.Commands.DestroyGroupCommand.Parameters">
+            <summary>
+            The parameters which should be used on command execution.
+            </summary>
+        </member>
+        <member name="T:CkSoftware.GroupMe.Sdk.Groups.Commands.FormerGroupsCommand">
+            <summary>
+            Former group command (GroupMe documentation: <see href="https://dev.groupme.com/docs/v3#groups_index_former" />).
+            </summary>
+        </member>
+        <member name="P:CkSoftware.GroupMe.Sdk.Groups.Commands.FormerGroupsCommand.CommandExecuted">
+            <summary>
+            Defines if the command is executed once.
+            </summary>
+        </member>
+        <member name="P:CkSoftware.GroupMe.Sdk.Groups.Commands.FormerGroupsCommand.CommandName">
+            <summary>
+            The name of the command to be executed.
+            </summary>
+        </member>
+        <member name="P:CkSoftware.GroupMe.Sdk.Groups.Commands.FormerGroupsCommand.HttpMethod">
+            <summary>
+            The http method to execute this command.
+            </summary>
+        </member>
+        <member name="P:CkSoftware.GroupMe.Sdk.Groups.Commands.FormerGroupsCommand.Parameters">
+            <summary>
+            The parameters which should be used on command execution.
+            </summary>
+        </member>
+        <member name="T:CkSoftware.GroupMe.Sdk.Groups.Commands.GroupAddMemberCommand">
+            <summary>
+            Group add member command (GroupMe documentation: <see href="https://dev.groupme.com/docs/v3#members_add" />).
+            </summary>
+        </member>
+        <member name="M:CkSoftware.GroupMe.Sdk.Groups.Commands.GroupAddMemberCommand.#ctor(System.String)">
+            <summary>
+            Instantiate a new <see cref="T:CkSoftware.GroupMe.Sdk.Groups.Commands.GroupAddMemberCommand"/> for the given group id.
+            </summary>
+            <param name="groupId">The group id in which the members should be added.</param>
+        </member>
+        <member name="M:CkSoftware.GroupMe.Sdk.Groups.Commands.GroupAddMemberCommand.WithMember(System.String,System.String,System.String,System.String)">
+            <summary>
+            Adds a member to the list of members-to-add. Will be added to the group on command execution.
+            </summary>
+            <param name="nickname">The nickname the user will have in this group initially.</param>
+            <param name="userId">The userId of the member to add. Either userId, phoneNumber or email must be added but not all of it.</param>
+            <param name="phoneNumber">The phone number of the user. Either userId, phoneNumber or email must be added but not all of it.</param>
+            <param name="email">The email address of the user. Either userId, phoneNumber or email must be added but not all of it.</param>
+            <returns>The extended <see cref="T:CkSoftware.GroupMe.Sdk.Groups.Commands.GroupAddMemberCommand"/>.</returns>
+        </member>
+        <member name="P:CkSoftware.GroupMe.Sdk.Groups.Commands.GroupAddMemberCommand.AddedMembers">
+            <summary>
+            Provides a list of the members which will be added on command-execution.
+            </summary>
+        </member>
+        <member name="P:CkSoftware.GroupMe.Sdk.Groups.Commands.GroupAddMemberCommand.CommandExecuted">
+            <summary>
+            Defines if the command is executed once.
+            </summary>
+        </member>
+        <member name="P:CkSoftware.GroupMe.Sdk.Groups.Commands.GroupAddMemberCommand.CommandName">
+            <summary>
+            The name of the command to be executed.
+            </summary>
+        </member>
+        <member name="P:CkSoftware.GroupMe.Sdk.Groups.Commands.GroupAddMemberCommand.HttpMethod">
+            <summary>
+            The http method to execute this command.
+            </summary>
+        </member>
+        <member name="P:CkSoftware.GroupMe.Sdk.Groups.Commands.GroupAddMemberCommand.Parameters">
+            <summary>
+            The parameters which should be used on command execution.
+            </summary>
+        </member>
+        <member name="T:CkSoftware.GroupMe.Sdk.Groups.Commands.GroupAddMemberResultsCommand">
+            <summary>
+            Group add member results command (GroupMe documentation: <see href="https://dev.groupme.com/docs/v3#members_results" />).
+            </summary>
+        </member>
+        <member name="M:CkSoftware.GroupMe.Sdk.Groups.Commands.GroupAddMemberResultsCommand.#ctor(System.String,System.Guid)">
+            <summary>
+            Instantiates a new <see cref="T:CkSoftware.GroupMe.Sdk.Groups.Commands.GroupAddMemberResultsCommand"/> for the given group-id and results id.
+            </summary>
+            <param name="groupId">The group id which should be checked for the add-result.</param>
+            <param name="resultsId">The resultsId returned in the add-command response.</param>
+        </member>
+        <member name="P:CkSoftware.GroupMe.Sdk.Groups.Commands.GroupAddMemberResultsCommand.CommandExecuted">
+            <summary>
+            Defines if the command is executed once.
+            </summary>
+        </member>
+        <member name="P:CkSoftware.GroupMe.Sdk.Groups.Commands.GroupAddMemberResultsCommand.CommandName">
+            <summary>
+            The name of the command to be executed.
+            </summary>
+        </member>
+        <member name="P:CkSoftware.GroupMe.Sdk.Groups.Commands.GroupAddMemberResultsCommand.HttpMethod">
+            <summary>
+            The http method to execute this command.
+            </summary>
+        </member>
+        <member name="P:CkSoftware.GroupMe.Sdk.Groups.Commands.GroupAddMemberResultsCommand.Parameters">
+            <summary>
+            The parameters which should be used on command execution.
+            </summary>
+        </member>
+        <member name="T:CkSoftware.GroupMe.Sdk.Groups.Commands.GroupIndexCommand">
+            <summary>
+            Group index command (GroupMe documentation: <see href="https://dev.groupme.com/docs/v3#groups_index" />).
+            </summary>
+        </member>
+        <member name="M:CkSoftware.GroupMe.Sdk.Groups.Commands.GroupIndexCommand.#ctor">
+            <summary>
+            Instantiate a new <see cref="T:CkSoftware.GroupMe.Sdk.Groups.Commands.GroupIndexCommand"/>.
+            </summary>
+        </member>
+        <member name="M:CkSoftware.GroupMe.Sdk.Groups.Commands.GroupIndexCommand.ForNextPage">
+            <summary>
+            Increases the current page number and allows for a re-execution of this command.
+            </summary>
+            <returns>The extended <see cref="T:CkSoftware.GroupMe.Sdk.Groups.Commands.GroupIndexCommand"/>.</returns>
+        </member>
+        <member name="M:CkSoftware.GroupMe.Sdk.Groups.Commands.GroupIndexCommand.WithItemsPerPage(System.Int32)">
+            <summary>
+            Changes the number of items retreived per request.
+            </summary>
+            <param name="itemsPerPage">The number of items per page / request.</param>
+            <returns>The extended <see cref="T:CkSoftware.GroupMe.Sdk.Groups.Commands.GroupIndexCommand"/>.</returns>
+        </member>
+        <member name="P:CkSoftware.GroupMe.Sdk.Groups.Commands.GroupIndexCommand.CommandName">
+            <summary>
+            The name of the command to be executed.
+            </summary>
+        </member>
+        <member name="P:CkSoftware.GroupMe.Sdk.Groups.Commands.GroupIndexCommand.HttpMethod">
+            <summary>
+            The http method to execute this command.
+            </summary>
+        </member>
+        <member name="P:CkSoftware.GroupMe.Sdk.Groups.Commands.GroupIndexCommand.Parameters">
+            <summary>
+            The parameters which should be used on command execution.
+            </summary>
+        </member>
+        <member name="P:CkSoftware.GroupMe.Sdk.Groups.Commands.GroupIndexCommand.CommandExecuted">
+            <summary>
+            Defines if the command is executed once.
+            </summary>
+        </member>
+        <member name="T:CkSoftware.GroupMe.Sdk.Groups.Commands.GroupRemoveMemberCommand">
+            <summary>
+            Group remove member command (GroupMe documentation: <see href="https://dev.groupme.com/docs/v3#members_remove" />).
+            </summary>
+        </member>
+        <member name="M:CkSoftware.GroupMe.Sdk.Groups.Commands.GroupRemoveMemberCommand.#ctor(System.String,System.String)">
+            <summary>
+            Instantiates a new <see cref="T:CkSoftware.GroupMe.Sdk.Groups.Commands.GroupRemoveMemberCommand"/> using the given groupId and groupMemberId.
+            </summary>
+            <param name="groupId">The group for which a member should be removed.</param>
+            <param name="groupMemberId">The groupMemberId for the member to remove. Attention: this is the Id parameter of the <see cref="T:CkSoftware.GroupMe.Sdk.Groups.Dao.GroupMemberData"/>, not the UserId!</param>
+        </member>
+        <member name="P:CkSoftware.GroupMe.Sdk.Groups.Commands.GroupRemoveMemberCommand.CommandExecuted">
+            <summary>
+            Defines if the command is executed once.
+            </summary>
+        </member>
+        <member name="P:CkSoftware.GroupMe.Sdk.Groups.Commands.GroupRemoveMemberCommand.CommandName">
+            <summary>
+            The name of the command to be executed.
+            </summary>
+        </member>
+        <member name="P:CkSoftware.GroupMe.Sdk.Groups.Commands.GroupRemoveMemberCommand.HttpMethod">
+            <summary>
+            The http method to execute this command.
+            </summary>
+        </member>
+        <member name="P:CkSoftware.GroupMe.Sdk.Groups.Commands.GroupRemoveMemberCommand.Parameters">
+            <summary>
+            The parameters which should be used on command execution.
+            </summary>
+        </member>
+        <member name="T:CkSoftware.GroupMe.Sdk.Groups.Commands.ShowGroupCommand">
+            <summary>
+            Show group command (GroupMe documentation: <see href="https://dev.groupme.com/docs/v3#groups_show" />).
+            </summary>
+        </member>
+        <member name="M:CkSoftware.GroupMe.Sdk.Groups.Commands.ShowGroupCommand.#ctor(System.String)">
+            <summary>
+            Instantiate a new <see cref="T:CkSoftware.GroupMe.Sdk.Groups.Commands.ShowGroupCommand"/> using the given groupId.
+            </summary>
+            <param name="groupId">The group id to get the details for.</param>
+        </member>
+        <member name="P:CkSoftware.GroupMe.Sdk.Groups.Commands.ShowGroupCommand.CommandExecuted">
+            <summary>
+            Defines if the command is executed once.
+            </summary>
+        </member>
+        <member name="P:CkSoftware.GroupMe.Sdk.Groups.Commands.ShowGroupCommand.CommandName">
+            <summary>
+            The name of the command to be executed.
+            </summary>
+        </member>
+        <member name="P:CkSoftware.GroupMe.Sdk.Groups.Commands.ShowGroupCommand.HttpMethod">
+            <summary>
+            The http method to execute this command.
+            </summary>
+        </member>
+        <member name="P:CkSoftware.GroupMe.Sdk.Groups.Commands.ShowGroupCommand.Parameters">
+            <summary>
+            The parameters which should be used on command execution.
+            </summary>
+        </member>
+        <member name="T:CkSoftware.GroupMe.Sdk.Groups.Dao.AddMemberData">
+            <summary>
+            The DAO which is used to add a new member to a group.
+            </summary>
+        </member>
+        <member name="M:CkSoftware.GroupMe.Sdk.Groups.Dao.AddMemberData.#ctor">
+            <summary>
+            Instantiate a new <see cref="T:CkSoftware.GroupMe.Sdk.Groups.Dao.AddMemberData"/>.
+            </summary>
+        </member>
+        <member name="M:CkSoftware.GroupMe.Sdk.Groups.Dao.AddMemberData.IsValid">
+            <summary>
+            Validates if the current user-definition is valid for an add operation.
+            </summary>
+            <returns>True if the data is valid, otherwise false.</returns>
+        </member>
+        <member name="P:CkSoftware.GroupMe.Sdk.Groups.Dao.AddMemberData.Email">
+            <summary>
+            The email of the member to add.
+            </summary>
+        </member>
+        <member name="P:CkSoftware.GroupMe.Sdk.Groups.Dao.AddMemberData.Guid">
+            <summary>
+            The own user guid used to identify the added user after the async processing is finished.
+            </summary>
+        </member>
+        <member name="P:CkSoftware.GroupMe.Sdk.Groups.Dao.AddMemberData.Nickname">
+            <summary>
+            The nickname of the member to add.
+            </summary>
+        </member>
+        <member name="P:CkSoftware.GroupMe.Sdk.Groups.Dao.AddMemberData.PhoneNumber">
+            <summary>
+            The phone number of the member to add.
+            </summary>
+        </member>
+        <member name="P:CkSoftware.GroupMe.Sdk.Groups.Dao.AddMemberData.UserId">
+            <summary>
+            The user id of the member to add.
+            </summary>
+        </member>
+        <member name="T:CkSoftware.GroupMe.Sdk.Groups.Dao.CreateGroupParameters">
+            <summary>
+            Parameters for the <see cref="T:CkSoftware.GroupMe.Sdk.Groups.Commands.CreateGroupCommand"/>.
+            </summary>
+        </member>
+        <member name="P:CkSoftware.GroupMe.Sdk.Groups.Dao.CreateGroupParameters.Description">
+            <summary>
+            The description of the group to create.
+            </summary>
+        </member>
+        <member name="P:CkSoftware.GroupMe.Sdk.Groups.Dao.CreateGroupParameters.GroupImage">
+            <summary>
+            The <see cref="T:CkSoftware.GroupMe.Sdk.Core.Dao.PictureData"/> for the group avatar image.
+            </summary>
+        </member>
+        <member name="P:CkSoftware.GroupMe.Sdk.Groups.Dao.CreateGroupParameters.ImageUrl">
+            <summary>
+            The full-resolution group avatar image. Get and set accesses the GroupImage property, so either GroupImage or ImageUrl must be set.
+            </summary>
+        </member>
+        <member name="P:CkSoftware.GroupMe.Sdk.Groups.Dao.CreateGroupParameters.IsOpenForSharing">
+            <summary>
+            Defines if the group is open for share / free to join.
+            </summary>
+        </member>
+        <member name="P:CkSoftware.GroupMe.Sdk.Groups.Dao.CreateGroupParameters.Name">
+            <summary>
+            The name of the new group.
+            </summary>
+        </member>
+        <member name="T:CkSoftware.GroupMe.Sdk.Groups.Dao.GroupAddMemberParameters">
+            <summary>
+            The parameters for the <see cref="T:CkSoftware.GroupMe.Sdk.Groups.Commands.GroupAddMemberCommand"/>.
+            </summary>
+        </member>
+        <member name="M:CkSoftware.GroupMe.Sdk.Groups.Dao.GroupAddMemberParameters.#ctor">
+            <summary>
+            Instantiate a new <see cref="T:CkSoftware.GroupMe.Sdk.Groups.Dao.GroupAddMemberParameters"/>.
+            </summary>
+        </member>
+        <member name="M:CkSoftware.GroupMe.Sdk.Groups.Dao.GroupAddMemberParameters.AddMember(CkSoftware.GroupMe.Sdk.Groups.Dao.AddMemberData)">
+            <summary>
+            Adds a new member data to the list of members.
+            </summary>
+            <param name="memberData">The <see cref="T:CkSoftware.GroupMe.Sdk.Groups.Dao.AddMemberData"/> object. IsValid will be executed before adding.</param>
+            <exception cref="T:CkSoftware.GroupMe.Sdk.Core.Exceptions.GroupMeException">Occurs if the memberData is not valid.</exception>
+            <returns>The data of the added member.</returns>
+        </member>
+        <member name="P:CkSoftware.GroupMe.Sdk.Groups.Dao.GroupAddMemberParameters.Members">
+            <summary>
+            The list of members to be added to the group.
+            </summary>
+        </member>
+        <member name="T:CkSoftware.GroupMe.Sdk.Groups.Dao.GroupAddMemberResultsData">
+            <summary>
+            The <see cref="T:CkSoftware.GroupMe.Sdk.Groups.Commands.GroupAddMemberResultsCommand"/> results data.
+            </summary>
+        </member>
+        <member name="P:CkSoftware.GroupMe.Sdk.Groups.Dao.GroupAddMemberResultsData.AddedMembers">
+            <summary>
+            The list of successfully added members.
+            </summary>
+        </member>
+        <member name="P:CkSoftware.GroupMe.Sdk.Groups.Dao.GroupAddMemberResultsData.MissingMembers">
+            <summary>
+            The list of not added members.
+            </summary>
+        </member>
+        <member name="P:CkSoftware.GroupMe.Sdk.Groups.Dao.GroupAddMemberResultsData.Status">
+            <summary>
+            The status of the add-member command processing.
+            </summary>
+        </member>
+        <member name="T:CkSoftware.GroupMe.Sdk.Groups.Dao.GroupData">
+            <summary>
+            The DAO for a single GroupMe group.
+            </summary>
+        </member>
+        <member name="P:CkSoftware.GroupMe.Sdk.Groups.Dao.GroupData.CreatedAt">
+            <summary>
+            The DateTime the group was created.
+            </summary>
+        </member>
+        <member name="P:CkSoftware.GroupMe.Sdk.Groups.Dao.GroupData.CreatedAtSecondsSinceEpoch">
+            <summary>
+            The DateTime the group was created in unix format (seconds since epoch).
+            </summary>
+        </member>
+        <member name="P:CkSoftware.GroupMe.Sdk.Groups.Dao.GroupData.CreatorUserId">
+            <summary>
+            The UserId of the creator.
+            </summary>
+        </member>
+        <member name="P:CkSoftware.GroupMe.Sdk.Groups.Dao.GroupData.Description">
+            <summary>
+            The description text of the group.
+            </summary>
+        </member>
+        <member name="P:CkSoftware.GroupMe.Sdk.Groups.Dao.GroupData.Id">
+            <summary>
+            The id of the group.
+            </summary>
+        </member>
+        <member name="P:CkSoftware.GroupMe.Sdk.Groups.Dao.GroupData.Image">
+            <summary>
+            The <see cref="T:CkSoftware.GroupMe.Sdk.Core.Dao.PictureData"/> for the group-avatar.
+            </summary>
+        </member>
+        <member name="P:CkSoftware.GroupMe.Sdk.Groups.Dao.GroupData.ImageUrl">
+            <summary>
+            The group avatar image url.
+            </summary>
+        </member>
+        <member name="P:CkSoftware.GroupMe.Sdk.Groups.Dao.GroupData.Members">
+            <summary>
+            The list of currently active group-members.
+            </summary>
+        </member>
+        <member name="P:CkSoftware.GroupMe.Sdk.Groups.Dao.GroupData.Messages">
+            <summary>
+            The message info of the last written group-message.
+            </summary>
+        </member>
+        <member name="P:CkSoftware.GroupMe.Sdk.Groups.Dao.GroupData.Name">
+            <summary>
+            The name of the group.
+            </summary>
+        </member>
+        <member name="P:CkSoftware.GroupMe.Sdk.Groups.Dao.GroupData.OfficeMode">
+            <summary>
+            Defines if the group is in office mode.
+            </summary>
+        </member>
+        <member name="P:CkSoftware.GroupMe.Sdk.Groups.Dao.GroupData.PhoneNumber">
+            <summary>
+            The phone-number of this group (for SMS to group communication).
+            </summary>
+        </member>
+        <member name="P:CkSoftware.GroupMe.Sdk.Groups.Dao.GroupData.ShareUrl">
+            <summary>
+            The share url of this group.
+            </summary>
+        </member>
+        <member name="P:CkSoftware.GroupMe.Sdk.Groups.Dao.GroupData.Type">
+            <summary>
+            OBSOLETE: a type string which is no longer used according to the GroupMe API support.
+            </summary>
+        </member>
+        <member name="P:CkSoftware.GroupMe.Sdk.Groups.Dao.GroupData.UpdatedAt">
+            <summary>
+            The DateTime the group was last updated.
+            </summary>
+        </member>
+        <member name="P:CkSoftware.GroupMe.Sdk.Groups.Dao.GroupData.UpdatedAtSecondsSinceEpoch">
+            <summary>
+            The DateTime the group was last updated in unix format (seconds since epoch).
+            </summary>
+        </member>
+        <member name="T:CkSoftware.GroupMe.Sdk.Groups.Dao.GroupIndexParameters">
+            <summary>
+            Parameters for the <see cref="T:CkSoftware.GroupMe.Sdk.Groups.Commands.GroupIndexCommand"/>.
+            </summary>
+        </member>
+        <member name="M:CkSoftware.GroupMe.Sdk.Groups.Dao.GroupIndexParameters.#ctor">
+            <summary>
+            Instantiate a new <see cref="T:CkSoftware.GroupMe.Sdk.Groups.Dao.GroupIndexParameters"/>.
+            </summary>
+        </member>
+        <member name="P:CkSoftware.GroupMe.Sdk.Groups.Dao.GroupIndexParameters.ItemsPerPage">
+            <summary>
+            The number of items per page.
+            </summary>
+        </member>
+        <member name="P:CkSoftware.GroupMe.Sdk.Groups.Dao.GroupIndexParameters.PageNumber">
+            <summary>
+            The page-number to display.
+            </summary>
+        </member>
+        <member name="T:CkSoftware.GroupMe.Sdk.Groups.Dao.GroupMemberAddedData">
+            <summary>
+            The result data of the <see cref="T:CkSoftware.GroupMe.Sdk.Groups.Commands.GroupAddMemberResultsCommand"/>.
+            </summary>
+        </member>
+        <member name="T:CkSoftware.GroupMe.Sdk.Groups.Dao.GroupMemberData">
+            <summary>
+            The member data of a single group user.
+            </summary>
+        </member>
+        <member name="P:CkSoftware.GroupMe.Sdk.Groups.Dao.GroupMemberData.AutoKicked">
+            <summary>
+            Defines if the user was autokicked.
+            </summary>
+        </member>
+        <member name="P:CkSoftware.GroupMe.Sdk.Groups.Dao.GroupMemberData.AvatarImage">
+            <summary>
+            The <see cref="T:CkSoftware.GroupMe.Sdk.Core.Dao.PictureData"/> for the user avatar.
+            </summary>
+        </member>
+        <member name="P:CkSoftware.GroupMe.Sdk.Groups.Dao.GroupMemberData.AvatarUrl">
+            <summary>
+            The image-url for the user avatar.
+            </summary>
+        </member>
+        <member name="P:CkSoftware.GroupMe.Sdk.Groups.Dao.GroupMemberData.Id">
+            <summary>
+            The id of this user in the given group (this is a changing id from group to group, the UserId member shows the unique user id).
+            </summary>
+        </member>
+        <member name="P:CkSoftware.GroupMe.Sdk.Groups.Dao.GroupMemberData.Muted">
+            <summary>
+            Defines if this user is in muted state.
+            </summary>
+        </member>
+        <member name="P:CkSoftware.GroupMe.Sdk.Groups.Dao.GroupMemberData.Nickname">
+            <summary>
+            The nickname of the user in the given group.
+            </summary>
+        </member>
+        <member name="P:CkSoftware.GroupMe.Sdk.Groups.Dao.GroupMemberData.UserId">
+            <summary>
+            The globally unique user id.
+            </summary>
+        </member>
+        <member name="P:CkSoftware.GroupMe.Sdk.Groups.Dao.GroupMemberData.Messages">
+            <summary>
+            The <see cref="T:CkSoftware.GroupMe.Sdk.Messaging.GroupMeDirectMessages"/> from the authenticated user to this user (and vice versa).
+            </summary>
+        </member>
+        <member name="P:CkSoftware.GroupMe.Sdk.Groups.Dao.GroupMemberAddedData.AppInstalled">
+            <summary>
+            Defines if the added user have installed the smartphone app.
+            </summary>
+        </member>
+        <member name="P:CkSoftware.GroupMe.Sdk.Groups.Dao.GroupMemberAddedData.Guid">
+            <summary>
+            The Guid of the add-member operation.
+            </summary>
+        </member>
+        <member name="P:CkSoftware.GroupMe.Sdk.Groups.Dao.GroupMemberAddedData.GuidString">
+            <summary>
+            The string representation of the add-member operation guid.
+            </summary>
+        </member>
+        <member name="T:CkSoftware.GroupMe.Sdk.Groups.Dao.GroupMemberAddedMissingData">
+            <summary>
+            The data object for the not added members in the <see cref="T:CkSoftware.GroupMe.Sdk.Groups.Commands.GroupAddMemberResultsCommand"/>.
+            </summary>
+        </member>
+        <member name="M:CkSoftware.GroupMe.Sdk.Groups.Dao.GroupMemberAddedMissingData.#ctor(CkSoftware.GroupMe.Sdk.Groups.Dao.AddMemberData)">
+            <summary>
+            Instantiates a new <see cref="T:CkSoftware.GroupMe.Sdk.Groups.Dao.GroupMemberAddedMissingData"/> object.
+            </summary>
+            <param name="data">The data of the missing-member.</param>
+        </member>
+        <member name="P:CkSoftware.GroupMe.Sdk.Groups.Dao.GroupMemberAddedMissingData.Email">
+            <summary>
+            The email of the not-added user.
+            </summary>
+        </member>
+        <member name="P:CkSoftware.GroupMe.Sdk.Groups.Dao.GroupMemberAddedMissingData.Guid">
+            <summary>
+            The guid of the not-added user.
+            </summary>
+        </member>
+        <member name="P:CkSoftware.GroupMe.Sdk.Groups.Dao.GroupMemberAddedMissingData.Nickname">
+            <summary>
+            The nickname of the not-added user.
+            </summary>
+        </member>
+        <member name="P:CkSoftware.GroupMe.Sdk.Groups.Dao.GroupMemberAddedMissingData.PhoneNumber">
+            <summary>
+            The phonenumber of the not-added user.
+            </summary>
+        </member>
+        <member name="P:CkSoftware.GroupMe.Sdk.Groups.Dao.GroupMemberAddedMissingData.UserId">
+            <summary>
+            The userId of the not-added user.
+            </summary>
+        </member>
+        <member name="T:CkSoftware.GroupMe.Sdk.Groups.Dao.GroupMessagesOverviewData">
+            <summary>
+            The DAO for the message overview of a group.
+            </summary>
+        </member>
+        <member name="P:CkSoftware.GroupMe.Sdk.Groups.Dao.GroupMessagesOverviewData.Count">
+            <summary>
+            The number of messages present in this group.
+            </summary>
+        </member>
+        <member name="P:CkSoftware.GroupMe.Sdk.Groups.Dao.GroupMessagesOverviewData.LastMessageCreatedAt">
+            <summary>
+            The DateTime the last message was written in this group.
+            </summary>
+        </member>
+        <member name="P:CkSoftware.GroupMe.Sdk.Groups.Dao.GroupMessagesOverviewData.LastMessageCreatedAtSecondsSinceEpoch">
+            <summary>
+            The DateTime the last message was written in this group in unix format (seconds since epoch).
+            </summary>
+        </member>
+        <member name="P:CkSoftware.GroupMe.Sdk.Groups.Dao.GroupMessagesOverviewData.LastMessageId">
+            <summary>
+            The MessageId of the last written message in this group.
+            </summary>
+        </member>
+        <member name="P:CkSoftware.GroupMe.Sdk.Groups.Dao.GroupMessagesOverviewData.Preview">
+            <summary>
+            The preview data for the last group-message.
+            </summary>
+        </member>
+        <member name="T:CkSoftware.GroupMe.Sdk.Groups.Dao.GroupMessagesPreviewData">
+            <summary>
+            The preview data for the last group-message.
+            </summary>
+        </member>
+        <member name="P:CkSoftware.GroupMe.Sdk.Groups.Dao.GroupMessagesPreviewData.ImageUrl">
+            <summary>
+            The image of the user last written a message.
+            </summary>
+        </member>
+        <member name="P:CkSoftware.GroupMe.Sdk.Groups.Dao.GroupMessagesPreviewData.Nickname">
+            <summary>
+            The nickname of the last message-poster.
+            </summary>
+        </member>
+        <member name="P:CkSoftware.GroupMe.Sdk.Groups.Dao.GroupMessagesPreviewData.Text">
+            <summary>
+            The text of the last posted message.
+            </summary>
+        </member>
+        <member name="T:CkSoftware.GroupMe.Sdk.Groups.Dao.GroupsListing">
+            <summary>
+            The DAO for the list of groups available for the currently authenticated user. Implements <see cref="T:CkSoftware.GroupMe.Sdk.Core.Interfaces.IPagedCollection`1"/>, so this interface can be used for paging.
+            </summary>
+        </member>
+        <member name="M:CkSoftware.GroupMe.Sdk.Groups.Dao.GroupsListing.#ctor(CkSoftware.GroupMe.Sdk.Core.IWebApiAccess,CkSoftware.GroupMe.Sdk.Groups.Commands.GroupIndexCommand,System.Collections.Generic.IEnumerable{CkSoftware.GroupMe.Sdk.Groups.Dao.GroupData})">
+            <summary>
+            Instantiates a new <see cref="T:CkSoftware.GroupMe.Sdk.Groups.Dao.GroupsListing"/> object using the given webApiAccess, indexCommand and initial entity results.
+            </summary>
+            <param name="webApiAccess">The <see cref="T:CkSoftware.GroupMe.Sdk.Core.IWebApiAccess"/> which should be used to call the API.</param>
+            <param name="indexCommand">The (already used) <see cref="T:CkSoftware.GroupMe.Sdk.Groups.Commands.GroupIndexCommand"/> for furter use (paging).</param>
+            <param name="initialEntityResults">The results of the first <see cref="T:CkSoftware.GroupMe.Sdk.Groups.Commands.GroupIndexCommand"/> execution.</param>
+        </member>
+        <member name="M:CkSoftware.GroupMe.Sdk.Groups.Dao.GroupsListing.GetEnumerator">
+            <summary>
+            Returns an enumerator that iterates through the collection.
+            </summary>
+            <returns>
+            A <see cref="T:System.Collections.Generic.IEnumerator`1"/> that can be used to iterate through the collection.
+            </returns>
+            <filterpriority>1</filterpriority>
+        </member>
+        <member name="M:CkSoftware.GroupMe.Sdk.Groups.Dao.GroupsListing.FetchNext">
+            <summary>
+            Fetch the next page for the paged entities.
+            </summary>
+            <returns>
+            The result of the fetch, false if there were no more entities fetched, true if there were new entities
+            available.
+            </returns>
+        </member>
+        <member name="M:CkSoftware.GroupMe.Sdk.Groups.Dao.GroupsListing.FetchAll">
+            <summary>
+            Fetches all entities until there are no more entities available.
+            </summary>
+            <returns>The awaitable <see cref="T:System.Threading.Tasks.Task"/>.</returns>
+        </member>
+        <member name="P:CkSoftware.GroupMe.Sdk.Groups.Dao.GroupsListing.Entries">
+            <summary>
+            List of all entities fetched.
+            </summary>
+        </member>
+        <member name="P:CkSoftware.GroupMe.Sdk.Groups.Dao.GroupsListing.NewEntries">
+            <summary>
+            List of entities fetched in the last FetchNext call.
+            </summary>
+        </member>
+        <member name="T:CkSoftware.GroupMe.Sdk.Groups.GroupMeGroup">
+            <summary>
+            Defines a single GroupMe group containing the group definition and methods to manage users and messages.
+            </summary>
+        </member>
+        <member name="M:CkSoftware.GroupMe.Sdk.Groups.GroupMeGroup.#ctor(CkSoftware.GroupMe.Sdk.Core.IWebApiAccess,CkSoftware.GroupMe.Sdk.Groups.Dao.GroupData)">
+            <summary>
+            Instantiates a new <see cref="T:CkSoftware.GroupMe.Sdk.Groups.GroupMeGroup"/> object.
+            </summary>
+            <param name="webApiAccess">The <see cref="T:CkSoftware.GroupMe.Sdk.Core.IWebApiAccess"/> which should be used to call the API.</param>
+            <param name="groupData">The already accessed <see cref="T:CkSoftware.GroupMe.Sdk.Groups.Dao.GroupData"/> for the current group.</param>
+        </member>
+        <member name="M:CkSoftware.GroupMe.Sdk.Groups.GroupMeGroup.AddMember(System.String,System.String,System.String,System.String)">
+            <summary>
+            Adds the given member-data to a list of members to add to the group. This DOES NOT directly submit the member to the
+            group. To submit the added member(s), call SubmitAddedMembers().
+            </summary>
+            <param name="nickname">The member's nickname.</param>
+            <param name="userId">The user-id of the member to add. At least one of userId, phoneNumber or email must be specified.</param>
+            <param name="phoneNumber">The phoneNumber of the member to add.</param>
+            <param name="email">The email of the member to add.</param>
+            <returns>Reference to this, used for FluentApi calls.</returns>
+        </member>
+        <member name="M:CkSoftware.GroupMe.Sdk.Groups.GroupMeGroup.CheckAddMemberResults(System.Guid)">
+            <summary>
+            Checks the status for the given results id and returns the status including the finished and missing member-data.
+            </summary>
+            <param name="resultsId">The results id from the SubmitAddedMembersAsync() call.</param>
+            <returns>The AddedMember Results data.</returns>
+        </member>
+        <member name="M:CkSoftware.GroupMe.Sdk.Groups.GroupMeGroup.RemoveMember(System.String)">
+            <summary>
+            Removes a user from this group.
+            </summary>
+            <param name="groupMemberId">
+            The member Id to remove. Needs to be the group-member-id from the field Id of the
+            <see cref="T:CkSoftware.GroupMe.Sdk.Groups.Dao.GroupMemberData"/>.
+            </param>
+            <returns>The async Task to wait for.</returns>
+        </member>
+        <member name="M:CkSoftware.GroupMe.Sdk.Groups.GroupMeGroup.RemoveMember(CkSoftware.GroupMe.Sdk.Groups.Dao.GroupMemberData)">
+            <summary>
+            Removes a user from this group.
+            </summary>
+            <param name="member">The member to remove.</param>
+            <returns>The async Task to wait for.</returns>
+        </member>
+        <member name="M:CkSoftware.GroupMe.Sdk.Groups.GroupMeGroup.ResolveLikesForMessage(CkSoftware.GroupMe.Sdk.Core.Dao.GroupMeMessageData)">
+            <summary>
+            Resolves all likes of the given message to their respective group members.
+            </summary>
+            <param name="message">The message to resolve the likes.</param>
+            <returns>
+            The Group members who liked the message. If the member is not found in the current group-data, then this
+            member will be omited.
+            </returns>
+        </member>
+        <member name="M:CkSoftware.GroupMe.Sdk.Groups.GroupMeGroup.SubmitAddedMembersAndWaitForResults">
+            <summary>
+            Submits the previously prepared AddMembers Command, awaits the results and returns the AddMember results.
+            </summary>
+            <returns>The results of the AddMembers command.</returns>
+        </member>
+        <member name="M:CkSoftware.GroupMe.Sdk.Groups.GroupMeGroup.SubmitAddedMembersAsync">
+            <summary>
+            Submits the previously prepared AddMembers Command and returns the Results Id required for Result-Polling / Checking.
+            </summary>
+            <exception cref="T:CkSoftware.GroupMe.Sdk.Core.Exceptions.GroupMeException">Occurs if you try to execute the AddMembers without actually adding any members.</exception>
+            <returns>The ResultsId used for Result-Polling / Checking if the results are ready.</returns>
+        </member>
+        <member name="P:CkSoftware.GroupMe.Sdk.Groups.GroupMeGroup.Data">
+            <summary>
+            The current <see cref="T:CkSoftware.GroupMe.Sdk.Groups.Dao.GroupData"/>.
+            </summary>
+        </member>
+        <member name="P:CkSoftware.GroupMe.Sdk.Groups.GroupMeGroup.Messages">
+            <summary>
+            The <see cref="T:CkSoftware.GroupMe.Sdk.Messaging.GroupMeMessages"/> object which manages the messages for this group.
+            </summary>
+        </member>
+        <member name="T:CkSoftware.GroupMe.Sdk.Groups.GroupMeGroupFactory">
+            <summary>
+            The factory class for GroupMe groups.
+            </summary>
+        </member>
+        <member name="M:CkSoftware.GroupMe.Sdk.Groups.GroupMeGroupFactory.#ctor(CkSoftware.GroupMe.Sdk.Core.IWebApiAccess)">
+            <summary>
+            Instantiates a new <see cref="T:CkSoftware.GroupMe.Sdk.Groups.GroupMeGroupFactory"/> object.
+            </summary>
+            <param name="webApiAccess">The <see cref="T:CkSoftware.GroupMe.Sdk.Core.IWebApiAccess"/> used to call the API.</param>
+        </member>
+        <member name="M:CkSoftware.GroupMe.Sdk.Groups.GroupMeGroupFactory.CreateGroup(System.String,System.String,CkSoftware.GroupMe.Sdk.Core.Dao.PictureData,System.Boolean)">
+            <summary>
+            Creates a new group with the given options.
+            </summary>
+            <param name="groupName">The name of the new group.</param>
+            <param name="description">The description of the new group.</param>
+            <param name="groupImage">The group-avatar image.</param>
+            <param name="openForSharing">Defines if this group should be open for sharing / free to join.</param>
+            <exception cref="T:System.ArgumentNullException">Occurs if the group name is null or an empty string.</exception>
+            <returns>An awaitable Task resulting in a <see cref="T:CkSoftware.GroupMe.Sdk.Groups.GroupMeGroup"/> instance.</returns>
+        </member>
+        <member name="M:CkSoftware.GroupMe.Sdk.Groups.GroupMeGroupFactory.DestroyGroup(System.String)">
+            <summary>
+            Destroys the group with the given groupId.
+            </summary>
+            <param name="groupId">The id of the group which should be destroyed.</param>
+            <exception cref="T:System.ArgumentNullException">Occurs if the groupId parameter is null or an empty string.</exception>
+            <returns>An awaitable task.</returns>
+        </member>
+        <member name="M:CkSoftware.GroupMe.Sdk.Groups.GroupMeGroupFactory.GetFormerGroups">
+            <summary>
+            Gets a list of former (and re-joinable) groups for the currently authenticated user.
+            </summary>
+            <returns>An awaitable Task resulting in a list of <see cref="T:CkSoftware.GroupMe.Sdk.Groups.GroupMeGroup"/>s.</returns>
+        </member>
+        <member name="M:CkSoftware.GroupMe.Sdk.Groups.GroupMeGroupFactory.GetGroup(System.String)">
+            <summary>
+            Gets information about the group with the given group id.
+            </summary>
+            <param name="groupId">The group id to query the group data.</param>
+            <returns>An awaitable Task resulting in a <see cref="T:CkSoftware.GroupMe.Sdk.Groups.GroupMeGroup"/>.</returns>
+        </member>
+        <member name="M:CkSoftware.GroupMe.Sdk.Groups.GroupMeGroupFactory.GetGroups">
+            <summary>
+            Gets all currently active groups for the currently authenticated user.
+            </summary>
+            <returns>An awaitable Task resulting in a <see cref="T:CkSoftware.GroupMe.Sdk.Groups.Dao.GroupsListing"/>.</returns>
+        </member>
+        <member name="M:CkSoftware.GroupMe.Sdk.Groups.GroupMeGroupFactory.UpdateGroup(System.String,System.String,System.String,CkSoftware.GroupMe.Sdk.Core.Dao.PictureData,System.Boolean)">
+            <summary>
+            Updates the group with the given groupId with the given data. Attention: only new data must be added, so if you only want to change the description, only add the description parameter.
+            </summary>
+            <param name="groupId">The group id of the group to update.</param>
+            <param name="newGroupName">The new group name.</param>
+            <param name="newDescription">The new group description.</param>
+            <param name="newGroupImage">The new group image.</param>
+            <param name="openForSharing">The new value for the openForSharing property.</param>
+            <exception cref="T:System.ArgumentNullException">Occurs if the groupId is null or an empty string.</exception>
+            <returns>An awaitable Task resulting in an updated <see cref="T:CkSoftware.GroupMe.Sdk.Groups.GroupMeGroup"/>.</returns>
+        </member>
+        <member name="T:CkSoftware.GroupMe.Sdk.Groups.NamespaceDoc">
+            <summary>
+            The <see cref="N:CkSoftware.GroupMe.Sdk.Groups"/> namespace contains all groups functionality (create, update, index, destroy, manage) for the GroupMe.Sdk.
+            </summary>
+        </member>
+    </members>
+</doc>

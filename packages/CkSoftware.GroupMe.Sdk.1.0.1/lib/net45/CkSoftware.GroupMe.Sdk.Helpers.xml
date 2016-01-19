@@ -1,0 +1,321 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>CkSoftware.GroupMe.Sdk.Helpers</name>
+    </assembly>
+    <members>
+        <member name="T:CkSoftware.GroupMe.Sdk.Helpers.Authorization.GroupMeClientAuthHelper">
+            <summary>
+            Helper class for client authentication / authorization.
+            </summary>
+        </member>
+        <member name="M:CkSoftware.GroupMe.Sdk.Helpers.Authorization.GroupMeClientAuthHelper.#ctor(System.String,System.String)">
+            <summary>
+            Creates a new instance of the GroupMeClientAuthHelper.
+            </summary>
+            <param name="oAuthBaseUrl">The base url of the oauth service (default is 'https://oauth.groupme.com').</param>
+            <param name="apiBaseUrl">The base GroupMe API service url (default is 'https://oauth.groupme.com/v3').</param>
+        </member>
+        <member name="M:CkSoftware.GroupMe.Sdk.Helpers.Authorization.GroupMeClientAuthHelper.GetAccessTokenForAuthorizeRequest(System.Web.HttpRequestBase)">
+            <summary>
+            Reads the GroupMe AccessToken out of the given HttpRequest and returns it.
+            </summary>
+            <param name="request">The HttpRequest where the access-token should be read.</param>
+            <returns>Returns the AccessToken found in the given HttpRequest.</returns>
+            <exception cref="T:CkSoftware.GroupMe.Sdk.Core.Exceptions.GroupMeException">Thrown if there is no AccessToken inside the request.</exception>
+        </member>
+        <member name="M:CkSoftware.GroupMe.Sdk.Helpers.Authorization.GroupMeClientAuthHelper.GetAuthenticationRedirectUrl(System.String)">
+            <summary>
+            Converts the given GroupMe application client-id to a url which can be used to redirect the users-browser.
+            </summary>
+            <param name="clientId">The GroupMe application client-id which should be used.</param>
+            <returns>Returns a full url to redirect the user where the user can authenticate itself.</returns>
+        </member>
+        <member name="M:CkSoftware.GroupMe.Sdk.Helpers.Authorization.GroupMeClientAuthHelper.GetWebApiAccessForAccessToken(System.String)">
+            <summary>
+            Creates a new IWebApiAccess instance using the given AccessToken.
+            </summary>
+            <param name="accessToken">The AccessToken to use for the new WebApiAccess class.</param>
+            <returns>Returns a new IWebApiAccess instance.</returns>
+            <exception cref="T:CkSoftware.GroupMe.Sdk.Core.Exceptions.GroupMeException">Thrown if there is no AccessToken inside the request.</exception>
+        </member>
+        <member name="M:CkSoftware.GroupMe.Sdk.Helpers.Authorization.GroupMeClientAuthHelper.GetWebApiAccessForAuthorizeRequest(System.Web.HttpRequestBase)">
+            <summary>
+            Reads the GroupMe AccessToken out of the given HttpRequest and instantiates a new IWebApiAccess class with the given
+            token.
+            </summary>
+            <param name="request">The HttpRequest where the access-token should be read.</param>
+            <returns>Returns a new IWebApiAccess instance which can be used for all GroupMe API calls.</returns>
+            <exception cref="T:CkSoftware.GroupMe.Sdk.Core.Exceptions.GroupMeException">Thrown if there is no AccessToken inside the request.</exception>
+        </member>
+        <member name="T:CkSoftware.GroupMe.Sdk.Helpers.Emoji.GroupMeEmojiMessageParser">
+            <summary>
+            Provides static methods to parse a message containing emoji definitions
+            </summary>
+        </member>
+        <member name="F:CkSoftware.GroupMe.Sdk.Helpers.Emoji.GroupMeEmojiMessageParser.MessageReplaceCharacter">
+            <summary>
+            The character which is used to replace the messages.
+            </summary>
+        </member>
+        <member name="M:CkSoftware.GroupMe.Sdk.Helpers.Emoji.GroupMeEmojiMessageParser.CreateMessageWithEmojiImages(CkSoftware.GroupMe.Sdk.Messaging.GroupMeMessages,System.String,System.String,System.String,System.Collections.Generic.IEnumerable{CkSoftware.GroupMe.Sdk.Core.Dao.GroupMeAttachmentBase})">
+            <summary>
+            Creates a new message and fills up the emoji attachment automatically.
+            </summary>
+            <param name="messageHandler">The <see cref="T:CkSoftware.GroupMe.Sdk.Messaging.GroupMeMessages"/> handler for sending a message.</param>
+            <param name="sourceGuid">
+            The sourceGuid of this message. This is an identifier of this message and should be unique, to
+            correctly identify duplicate submits.
+            </param>
+            <param name="text">The text to submit.</param>
+            <param name="emojiSearchRegexString">
+            A regex to search for emoji elements in the message. The regex must result in 2
+            groups where the first group contains the pack id and the second contains the emoji id of the pack. Default search
+            regex looks for this scheme: {{PACKID,EMOJIID}}. Example: {{1,0}} = first image of first pack, {{3,10}} = 10th image of
+            3rd pack.
+            </param>
+            <param name="attachments">A list of attachments to add to this mesasge.</param>
+            <returns>The created message-data.</returns>
+        </member>
+        <member name="M:CkSoftware.GroupMe.Sdk.Helpers.Emoji.GroupMeEmojiMessageParser.ParseMessage(System.String,CkSoftware.GroupMe.Sdk.Core.Dao.GroupMeEmojiAttachment@,System.String)">
+            <summary>
+            Parses the given message using the given emojiSearchRegexString and returns the correct replaced message and as out
+            parameter the <see cref="T:CkSoftware.GroupMe.Sdk.Core.Dao.GroupMeEmojiAttachment"/> to attach to the message create method.
+            </summary>
+            <param name="message">The text to submit.</param>
+            <param name="emojiAttachment">
+            Output of the parsed emoji images, can be directly added to the message attachments. Will
+            be null if there is no emoji in the message.
+            </param>
+            <param name="emojiSearchRegexString">
+            A regex to search for emoji elements in the message. The regex must result in 2
+            groups where the first group contains the pack id and the second contains the emoji id of the pack. Default search
+            regex looks for this scheme: {{PACKID,EMOJIID}}. Example: {{1,0}} = first image of first pack, {{3,10}} = 10th image of
+            3rd pack.
+            </param>
+            <returns>The replaced message, ready to send along with the generated <see cref="T:CkSoftware.GroupMe.Sdk.Core.Dao.GroupMeEmojiAttachment"/>.</returns>
+        </member>
+        <member name="T:CkSoftware.GroupMe.Sdk.Helpers.Emoji.GroupMeEmojiMessageRenderer">
+            <summary>
+            Provides static methods to render the emoji images into a message.
+            </summary>
+        </member>
+        <member name="M:CkSoftware.GroupMe.Sdk.Helpers.Emoji.GroupMeEmojiMessageRenderer.MergeMessageWithEmojiImages(System.String,CkSoftware.GroupMe.Sdk.Core.Dao.GroupMeEmojiAttachment,System.Func{CkSoftware.GroupMe.Sdk.Helpers.Emoji.GroupMeEmojiImage,System.String})">
+            <summary>
+            Merges the emoji images with the message using a emojiToString converter func. The default converter is the
+            <see cref="M:CkSoftware.GroupMe.Sdk.Helpers.Emoji.GroupMeEmojiMessageRenderer.DefaultHtmlInlineCssConverter(CkSoftware.GroupMe.Sdk.Helpers.Emoji.GroupMeEmojiImage)"/>.
+            </summary>
+            <param name="message">The message to parse and to enrich with the emoji images.</param>
+            <param name="emojiAttachment">The original emoji message attachment.</param>
+            <param name="emojiToStringConverter">
+            The converter to render <see cref="T:CkSoftware.GroupMe.Sdk.Helpers.Emoji.GroupMeEmojiImage"/> instances into a string.
+            Default converter is the Method <see cref="M:CkSoftware.GroupMe.Sdk.Helpers.Emoji.GroupMeEmojiMessageRenderer.DefaultHtmlInlineCssConverter(CkSoftware.GroupMe.Sdk.Helpers.Emoji.GroupMeEmojiImage)"/>, for optimized html output use
+            <see cref="M:CkSoftware.GroupMe.Sdk.Helpers.Emoji.GroupMeEmojiMessageRenderer.OptimizedHtmlCssConverter(CkSoftware.GroupMe.Sdk.Helpers.Emoji.GroupMeEmojiImage)"/> or an own implementation if you need any other placeholders in the output
+            string.
+            </param>
+            <returns>The enriched message containing all emoji images rendered using the emojiToStringConverter parameter.</returns>
+        </member>
+        <member name="M:CkSoftware.GroupMe.Sdk.Helpers.Emoji.GroupMeEmojiMessageRenderer.MergeMessageWithEmojiImages(System.String,System.Char,System.Collections.Generic.IEnumerable{CkSoftware.GroupMe.Sdk.Helpers.Emoji.GroupMeEmojiImage},System.Func{CkSoftware.GroupMe.Sdk.Helpers.Emoji.GroupMeEmojiImage,System.String})">
+            <summary>
+            Merges the emoji images with the message using a emojiToString converter func. The default converter is the
+            <see cref="M:CkSoftware.GroupMe.Sdk.Helpers.Emoji.GroupMeEmojiMessageRenderer.DefaultHtmlInlineCssConverter(CkSoftware.GroupMe.Sdk.Helpers.Emoji.GroupMeEmojiImage)"/>.
+            </summary>
+            <param name="message">The message to parse and to enrich with the emoji images.</param>
+            <param name="emojiPlaceholder">The Placeholder character which is used inside the message.</param>
+            <param name="emojiImages">The list of already parsed <see cref="T:CkSoftware.GroupMe.Sdk.Helpers.Emoji.GroupMeEmojiImage"/>.</param>
+            <param name="emojiToStringConverter">
+            The converter to render <see cref="T:CkSoftware.GroupMe.Sdk.Helpers.Emoji.GroupMeEmojiImage"/> instances into a string.
+            Default converter is the Method <see cref="M:CkSoftware.GroupMe.Sdk.Helpers.Emoji.GroupMeEmojiMessageRenderer.DefaultHtmlInlineCssConverter(CkSoftware.GroupMe.Sdk.Helpers.Emoji.GroupMeEmojiImage)"/>, for optimized html output use
+            <see cref="M:CkSoftware.GroupMe.Sdk.Helpers.Emoji.GroupMeEmojiMessageRenderer.OptimizedHtmlCssConverter(CkSoftware.GroupMe.Sdk.Helpers.Emoji.GroupMeEmojiImage)"/> or an own implementation if you need any other placeholders in the output
+            string.
+            </param>
+            <returns>The enriched message containing all emoji images rendered using the emojiToStringConverter parameter.</returns>
+        </member>
+        <member name="M:CkSoftware.GroupMe.Sdk.Helpers.Emoji.GroupMeEmojiMessageRenderer.DefaultHtmlInlineCssConverter(CkSoftware.GroupMe.Sdk.Helpers.Emoji.GroupMeEmojiImage)">
+            <summary>
+            Default emoji to html converter which creates a span with the needed styles to display the emoji as background-image.
+            </summary>
+            <param name="image">The emoji image to convert to HTML.</param>
+            <returns>The html representation to add to the content.</returns>
+        </member>
+        <member name="M:CkSoftware.GroupMe.Sdk.Helpers.Emoji.GroupMeEmojiMessageRenderer.OptimizedHtmlCssConverter(CkSoftware.GroupMe.Sdk.Helpers.Emoji.GroupMeEmojiImage)">
+            <summary>
+            Emoji to html converter which creates a span with a css-class 'emoji' and a css-class 'emoji-pack-X' (X is replaced
+            with the pack-name) and only adds the background-position as style attribute. Assumes that the .emoji and .emoji-pack-x
+            classes are styled correctly using CSS.
+            </summary>
+            <param name="image">The emoji image to convert to HTML.</param>
+            <returns>The optimized html representation of the image to add to the content.</returns>
+        </member>
+        <member name="T:CkSoftware.GroupMe.Sdk.Helpers.Emoji.GroupMeEmojiImage">
+            <summary>
+            Emoji data containing all information to display a correct emoticon image.
+            </summary>
+        </member>
+        <member name="F:CkSoftware.GroupMe.Sdk.Helpers.Emoji.GroupMeEmojiImage.DefaultEmojiWidth">
+            <summary>
+            The default emoji image width.
+            </summary>
+        </member>
+        <member name="F:CkSoftware.GroupMe.Sdk.Helpers.Emoji.GroupMeEmojiImage.DefaultEmojiHeight">
+            <summary>
+            The default emoji image height.
+            </summary>
+        </member>
+        <member name="P:CkSoftware.GroupMe.Sdk.Helpers.Emoji.GroupMeEmojiImage.PackSpriteImageUrl">
+            <summary>
+            The image url of the pack-sprite image.
+            </summary>
+        </member>
+        <member name="P:CkSoftware.GroupMe.Sdk.Helpers.Emoji.GroupMeEmojiImage.TopPosition">
+            <summary>
+            The position of the emoji image from the top (in pixel). The point 0/0 is in the top left corner of the sprite image.
+            </summary>
+        </member>
+        <member name="P:CkSoftware.GroupMe.Sdk.Helpers.Emoji.GroupMeEmojiImage.LeftPosition">
+            <summary>
+            The position of the emoji image from the left (in pixel). The point 0/0 is in the top left corner of the sprite image.
+            </summary>
+        </member>
+        <member name="P:CkSoftware.GroupMe.Sdk.Helpers.Emoji.GroupMeEmojiImage.IconWidth">
+            <summary>
+            The width of the emoji image (in pixel).
+            </summary>
+        </member>
+        <member name="P:CkSoftware.GroupMe.Sdk.Helpers.Emoji.GroupMeEmojiImage.IconHeight">
+            <summary>
+            The height of the emoji image (in pixel).
+            </summary>
+        </member>
+        <member name="P:CkSoftware.GroupMe.Sdk.Helpers.Emoji.GroupMeEmojiImage.Definition">
+            <summary>
+            The original definition object (for access to the pack-id and emoji id properties).
+            </summary>
+        </member>
+        <member name="T:CkSoftware.GroupMe.Sdk.Helpers.Emoji.GroupMeEmojiImageParser">
+            <summary>
+            Provides methods for parsing <see cref="T:CkSoftware.GroupMe.Sdk.Helpers.Emoji.GroupMeEmojiImage"/> from <see cref="T:CkSoftware.GroupMe.Sdk.Core.Dao.GroupMeEmojiDefinition"/>.
+            </summary>
+        </member>
+        <member name="F:CkSoftware.GroupMe.Sdk.Helpers.Emoji.GroupMeEmojiImageParser.EmojiSpriteImageUrlFormat">
+            <summary>
+            The sprite-image url-format for the emojis. {0} parameter = pack-id.
+            </summary>
+        </member>
+        <member name="M:CkSoftware.GroupMe.Sdk.Helpers.Emoji.GroupMeEmojiImageParser.ParseImages(System.Collections.Generic.IEnumerable{CkSoftware.GroupMe.Sdk.Core.Dao.GroupMeEmojiDefinition})">
+            <summary>
+            Parses any emoji definitions into usable image definitions (for client-side output).
+            </summary>
+            <param name="emojiDefinitions">The definitions to parse.</param>
+            <returns>The parsed image data.</returns>
+        </member>
+        <member name="T:CkSoftware.GroupMe.Sdk.Helpers.NamespaceDoc">
+            <summary>
+            The <see cref="N:CkSoftware.GroupMe.Sdk.Helpers"/> namespace contains various helper methods and helper classes for the
+            GroupMe.Sdk.
+            </summary>
+        </member>
+        <member name="T:CkSoftware.GroupMe.Sdk.Helpers.Users.Commands.UsersMeCommand">
+            <summary>
+            User me command (GroupMe documentation: <see href="https://dev.groupme.com/docs/v3#users_me" />).
+            </summary>
+        </member>
+        <member name="P:CkSoftware.GroupMe.Sdk.Helpers.Users.Commands.UsersMeCommand.CommandName">
+            <summary>
+            The name of the command to be executed.
+            </summary>
+        </member>
+        <member name="P:CkSoftware.GroupMe.Sdk.Helpers.Users.Commands.UsersMeCommand.HttpMethod">
+            <summary>
+            The http method to execute this command.
+            </summary>
+        </member>
+        <member name="P:CkSoftware.GroupMe.Sdk.Helpers.Users.Commands.UsersMeCommand.Parameters">
+            <summary>
+            The parameters which should be used on command execution.
+            </summary>
+        </member>
+        <member name="P:CkSoftware.GroupMe.Sdk.Helpers.Users.Commands.UsersMeCommand.CommandExecuted">
+            <summary>
+            Defines if the command is executed once.
+            </summary>
+        </member>
+        <member name="T:CkSoftware.GroupMe.Sdk.Helpers.Users.Dao.UserInfo">
+            <summary>
+            The data object for the currently authenticated user.
+            </summary>
+        </member>
+        <member name="P:CkSoftware.GroupMe.Sdk.Helpers.Users.Dao.UserInfo.UserId">
+            <summary>
+            The user-id.
+            </summary>
+        </member>
+        <member name="P:CkSoftware.GroupMe.Sdk.Helpers.Users.Dao.UserInfo.PhoneNumber">
+            <summary>
+            The users telephone-number.
+            </summary>
+        </member>
+        <member name="P:CkSoftware.GroupMe.Sdk.Helpers.Users.Dao.UserInfo.AvatarImage">
+            <summary>
+            The <see cref="T:CkSoftware.GroupMe.Sdk.Core.Dao.PictureData"/> for the user avatar.
+            </summary>
+        </member>
+        <member name="P:CkSoftware.GroupMe.Sdk.Helpers.Users.Dao.UserInfo.AvatarUrl">
+            <summary>
+            The image-url for the user avatar.
+            </summary>
+        </member>
+        <member name="P:CkSoftware.GroupMe.Sdk.Helpers.Users.Dao.UserInfo.Name">
+            <summary>
+            The users name.
+            </summary>
+        </member>
+        <member name="P:CkSoftware.GroupMe.Sdk.Helpers.Users.Dao.UserInfo.CreatedAt">
+            <summary>
+            The DateTime the user was created.
+            </summary>
+        </member>
+        <member name="P:CkSoftware.GroupMe.Sdk.Helpers.Users.Dao.UserInfo.CreatedAtSecondsSinceEpoch">
+            <summary>
+            The DateTime the user was created in unix format (seconds since epoch).
+            </summary>
+        </member>
+        <member name="P:CkSoftware.GroupMe.Sdk.Helpers.Users.Dao.UserInfo.UpdatedAt">
+            <summary>
+            The DateTime the user was last updated.
+            </summary>
+        </member>
+        <member name="P:CkSoftware.GroupMe.Sdk.Helpers.Users.Dao.UserInfo.UpdatedAtSecondsSinceEpoch">
+            <summary>
+            The DateTime the user was last updated in unix format (seconds since epoch).
+            </summary>
+        </member>
+        <member name="P:CkSoftware.GroupMe.Sdk.Helpers.Users.Dao.UserInfo.Email">
+            <summary>
+            The registered email address for this user.
+            </summary>
+        </member>
+        <member name="P:CkSoftware.GroupMe.Sdk.Helpers.Users.Dao.UserInfo.SmsModeEnabled">
+            <summary>
+            Defines if the SMS mode is enabled.
+            </summary>
+        </member>
+        <member name="T:CkSoftware.GroupMe.Sdk.Helpers.Users.UserHelper">
+            <summary>
+            Helper class for accessing the currently authenticated user data.
+            </summary>
+        </member>
+        <member name="M:CkSoftware.GroupMe.Sdk.Helpers.Users.UserHelper.#ctor(CkSoftware.GroupMe.Sdk.Core.IWebApiAccess)">
+            <summary>
+            Creates a new instance of the UserHelper.
+            </summary>
+            <param name="webApiAccess">The <see cref="T:CkSoftware.GroupMe.Sdk.Core.IWebApiAccess"/> used to call the API.</param>
+        </member>
+        <member name="M:CkSoftware.GroupMe.Sdk.Helpers.Users.UserHelper.GetCurrentUser">
+            <summary>
+            Gets the <see cref="T:CkSoftware.GroupMe.Sdk.Helpers.Users.Dao.UserInfo"/> data for the currently authenticated user.
+            </summary>
+            <returns>The UserInfo data for the currently authenticated user.</returns>
+        </member>
+    </members>
+</doc>

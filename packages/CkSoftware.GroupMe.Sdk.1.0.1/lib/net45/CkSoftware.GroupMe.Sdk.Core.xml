@@ -1,0 +1,731 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>CkSoftware.GroupMe.Sdk.Core</name>
+    </assembly>
+    <members>
+        <member name="T:CkSoftware.GroupMe.Sdk.Core.Dao.GroupMeEmojiAttachment">
+            <summary>
+            GroupMe emoji attachment.
+            </summary>
+        </member>
+        <member name="T:CkSoftware.GroupMe.Sdk.Core.Dao.GroupMeAttachmentBase">
+            <summary>
+            Abstract base class for all GroupMe message attachments.
+            </summary>
+        </member>
+        <member name="P:CkSoftware.GroupMe.Sdk.Core.Dao.GroupMeAttachmentBase.Type">
+            <summary>
+            Defines the type of the attachment implementation.
+            </summary>
+        </member>
+        <member name="P:CkSoftware.GroupMe.Sdk.Core.Dao.GroupMeAttachmentBase.IsInlineAttachment">
+            <summary>
+            Defines if the attachment is inline (inside the text) or seperated from the text.
+            </summary>
+        </member>
+        <member name="P:CkSoftware.GroupMe.Sdk.Core.Dao.GroupMeEmojiAttachment.Type">
+            <summary>
+            Defines the type of the attachment implementation.
+            </summary>
+        </member>
+        <member name="P:CkSoftware.GroupMe.Sdk.Core.Dao.GroupMeEmojiAttachment.IsInlineAttachment">
+            <summary>
+            Defines if the attachment is inline (inside the text) or seperated from the text.
+            </summary>
+        </member>
+        <member name="P:CkSoftware.GroupMe.Sdk.Core.Dao.GroupMeEmojiAttachment.EmojiPlaceholder">
+            <summary>
+            Defines the character used for emoji replacement.
+            </summary>
+        </member>
+        <member name="P:CkSoftware.GroupMe.Sdk.Core.Dao.GroupMeEmojiAttachment.EmojiMap">
+            <summary>
+            The emoji character map.
+            </summary>
+        </member>
+        <member name="T:CkSoftware.GroupMe.Sdk.Core.Dao.GroupMeEmojiDefinition">
+            <summary>
+            Definition DAO of a single emoji icon.
+            </summary>
+        </member>
+        <member name="P:CkSoftware.GroupMe.Sdk.Core.Dao.GroupMeEmojiDefinition.PackId">
+            <summary>
+            The id of the emoji pack.
+            </summary>
+        </member>
+        <member name="P:CkSoftware.GroupMe.Sdk.Core.Dao.GroupMeEmojiDefinition.EmojiId">
+            <summary>
+            The id of the emoji in the defined pack.
+            </summary>
+        </member>
+        <member name="T:CkSoftware.GroupMe.Sdk.Core.NamespaceDoc">
+            <summary>
+            The <see cref="N:CkSoftware.GroupMe.Sdk.Core"/> namespace contains all essential core functionality for the GroupMe.Sdk.
+            </summary>
+        </member>
+        <member name="T:CkSoftware.GroupMe.Sdk.Core.Dao.ApiResponseWithStatusCode">
+            <summary>
+            Global wrapper class for any API response with <see cref="T:System.Net.HttpStatusCode"/>.
+            </summary>
+        </member>
+        <member name="P:CkSoftware.GroupMe.Sdk.Core.Dao.ApiResponseWithStatusCode.ApiResponse">
+            <summary>
+            The API result Json string.
+            </summary>
+        </member>
+        <member name="P:CkSoftware.GroupMe.Sdk.Core.Dao.ApiResponseWithStatusCode.StatusCode">
+            <summary>
+            The <see cref="T:System.Net.HttpStatusCode"/> which was given by the executed HttpRequest to the API.
+            </summary>
+        </member>
+        <member name="T:CkSoftware.GroupMe.Sdk.Core.Dao.AsyncGroupMeApiResult">
+            <summary>
+            Result DAO for any GroupMe async result. This is used if the API is returning immediately but requires processing time
+            on the server. The current processing status can be requested using the returned results id.
+            </summary>
+        </member>
+        <member name="P:CkSoftware.GroupMe.Sdk.Core.Dao.AsyncGroupMeApiResult.ResultsGuid">
+            <summary>
+            The results-id parsed as <see cref="T:System.Guid"/>.
+            </summary>
+        </member>
+        <member name="P:CkSoftware.GroupMe.Sdk.Core.Dao.AsyncGroupMeApiResult.ResultsId">
+            <summary>
+            The results id which can be used to request the current processing status from the API.
+            </summary>
+        </member>
+        <member name="T:CkSoftware.GroupMe.Sdk.Core.Dao.GroupMeMessageData">
+            <summary>
+            GroupMe message DAO containing all message-relevant data fields from the GroupMe API for a single message.
+            </summary>
+        </member>
+        <member name="P:CkSoftware.GroupMe.Sdk.Core.Dao.GroupMeMessageData.Attachments">
+            <summary>
+            The list of all attachments to this message.
+            </summary>
+        </member>
+        <member name="P:CkSoftware.GroupMe.Sdk.Core.Dao.GroupMeMessageData.Avatar">
+            <summary>
+            Parsed <see cref="T:CkSoftware.GroupMe.Sdk.Core.Dao.PictureData"/> object from the AvatarUrl.
+            </summary>
+        </member>
+        <member name="P:CkSoftware.GroupMe.Sdk.Core.Dao.GroupMeMessageData.AvatarUrl">
+            <summary>
+            The avatar url of the message-poster member.
+            </summary>
+        </member>
+        <member name="P:CkSoftware.GroupMe.Sdk.Core.Dao.GroupMeMessageData.CreatedAt">
+            <summary>
+            The parsed CreatedAt DateTime.
+            </summary>
+        </member>
+        <member name="P:CkSoftware.GroupMe.Sdk.Core.Dao.GroupMeMessageData.CreatedSecondsSinceEpoch">
+            <summary>
+            The CreatedAt DateTime in unix notation (seconds since epoch).
+            </summary>
+        </member>
+        <member name="P:CkSoftware.GroupMe.Sdk.Core.Dao.GroupMeMessageData.GroupId">
+            <summary>
+            The id of the group where this message was posted.
+            </summary>
+        </member>
+        <member name="P:CkSoftware.GroupMe.Sdk.Core.Dao.GroupMeMessageData.IsSystemMessage">
+            <summary>
+            Indicates if this is a system-generated message (eg. a user leave / add or a nickname change).
+            </summary>
+        </member>
+        <member name="P:CkSoftware.GroupMe.Sdk.Core.Dao.GroupMeMessageData.LikedByUserIds">
+            <summary>
+            Contains all user-id's which liked this message.
+            </summary>
+        </member>
+        <member name="P:CkSoftware.GroupMe.Sdk.Core.Dao.GroupMeMessageData.MessageId">
+            <summary>
+            The unique message id.
+            </summary>
+        </member>
+        <member name="P:CkSoftware.GroupMe.Sdk.Core.Dao.GroupMeMessageData.Name">
+            <summary>
+            The name of the message-poster member.
+            </summary>
+        </member>
+        <member name="P:CkSoftware.GroupMe.Sdk.Core.Dao.GroupMeMessageData.RawData">
+            <summary>
+            The raw Json-data of this message (can be used if a custom parsing is needed).
+            </summary>
+        </member>
+        <member name="P:CkSoftware.GroupMe.Sdk.Core.Dao.GroupMeMessageData.Received">
+            <summary>
+            The DateTime when this message was received from this framework (will only be filled out on a bot callback. In every
+            other case this is always DateTime.MinValue!).
+            </summary>
+        </member>
+        <member name="P:CkSoftware.GroupMe.Sdk.Core.Dao.GroupMeMessageData.SourceGuid">
+            <summary>
+            A guid to identify a message, can be used for client-side deduplication.
+            </summary>
+        </member>
+        <member name="P:CkSoftware.GroupMe.Sdk.Core.Dao.GroupMeMessageData.Text">
+            <summary>
+            The text of this message.
+            </summary>
+        </member>
+        <member name="P:CkSoftware.GroupMe.Sdk.Core.Dao.GroupMeMessageData.UserId">
+            <summary>
+            The UserId of the message-poster member.
+            </summary>
+        </member>
+        <member name="T:CkSoftware.GroupMe.Sdk.Core.Dao.EmptyResponse">
+            <summary>
+            Class for an empty API response.
+            </summary>
+        </member>
+        <member name="T:CkSoftware.GroupMe.Sdk.Core.Dao.GroupMeApiResponse`1">
+            <summary>
+            Global GroupMe API wrapper class with the given TEntity type entity.
+            </summary>
+            <typeparam name="TEntity">The type of the expected API response entity.</typeparam>
+        </member>
+        <member name="T:CkSoftware.GroupMe.Sdk.Core.Interfaces.IWebApiResult">
+            <summary>
+            Base interface for a API call result.
+            </summary>
+        </member>
+        <member name="P:CkSoftware.GroupMe.Sdk.Core.Interfaces.IWebApiResult.Meta">
+            <summary>
+            The metadata returned by the API call.
+            </summary>
+        </member>
+        <member name="P:CkSoftware.GroupMe.Sdk.Core.Dao.GroupMeApiResponse`1.Response">
+            <summary>
+            The entity response of the API.
+            </summary>
+        </member>
+        <member name="P:CkSoftware.GroupMe.Sdk.Core.Dao.GroupMeApiResponse`1.Meta">
+            <summary>
+            The API response metadata.
+            </summary>
+        </member>
+        <member name="T:CkSoftware.GroupMe.Sdk.Core.Dao.GroupMeApiResultCode">
+            <summary>
+            Enumeration of all available GroupMe API response codes.
+            </summary>
+        </member>
+        <member name="F:CkSoftware.GroupMe.Sdk.Core.Dao.GroupMeApiResultCode.Ok">
+            <summary>
+            Request was accepted and executed correctly.
+            </summary>
+        </member>
+        <member name="F:CkSoftware.GroupMe.Sdk.Core.Dao.GroupMeApiResultCode.Created">
+            <summary>
+            Indicates that an entity was successfully created.
+            </summary>
+        </member>
+        <member name="F:CkSoftware.GroupMe.Sdk.Core.Dao.GroupMeApiResultCode.Accepted">
+            <summary>
+            Indicates that a request was successfully accepted.
+            </summary>
+        </member>
+        <member name="F:CkSoftware.GroupMe.Sdk.Core.Dao.GroupMeApiResultCode.NoContent">
+            <summary>
+            Indicates that the request was accepted and executed correctly, but no content was returned from the API.
+            </summary>
+        </member>
+        <member name="F:CkSoftware.GroupMe.Sdk.Core.Dao.GroupMeApiResultCode.NotModified">
+            <summary>
+            Indicates that a collection or an entity was not modified. Occurs currently at the message and direct-message index
+            commands.
+            </summary>
+        </member>
+        <member name="F:CkSoftware.GroupMe.Sdk.Core.Dao.GroupMeApiResultCode.BadRequest">
+            <summary>
+            Indicates an error with the given parameters.
+            </summary>
+        </member>
+        <member name="F:CkSoftware.GroupMe.Sdk.Core.Dao.GroupMeApiResultCode.Unauthorized">
+            <summary>
+            Indicates a wrong / expired auth-token or any other unathorized situation.
+            </summary>
+        </member>
+        <member name="F:CkSoftware.GroupMe.Sdk.Core.Dao.GroupMeApiResultCode.Forbidden">
+            <summary>
+            Indicates a forbidden action. Currently occurs at creating new direct messages if the user is sending too much
+            messages.
+            </summary>
+        </member>
+        <member name="F:CkSoftware.GroupMe.Sdk.Core.Dao.GroupMeApiResultCode.NotFound">
+            <summary>
+            Indicates that the requested resource was not found. Currently occurs in async processing when the result is already
+            deleted from the server.
+            </summary>
+        </member>
+        <member name="F:CkSoftware.GroupMe.Sdk.Core.Dao.GroupMeApiResultCode.EnhanceYourCalm">
+            <summary>
+            Indicates that a rate-limit was reached. Currently not occuring anywhere (as not declared in GroupMe API
+            documentation).
+            </summary>
+        </member>
+        <member name="F:CkSoftware.GroupMe.Sdk.Core.Dao.GroupMeApiResultCode.InternalServerError">
+            <summary>
+            States an internal server error, mostly occuring if there's something wrong with the GroupMe API service.
+            </summary>
+        </member>
+        <member name="F:CkSoftware.GroupMe.Sdk.Core.Dao.GroupMeApiResultCode.BadGateway">
+            <summary>
+            Indicates that there is an error reaching the API. Perhaps they're updating their servers.
+            </summary>
+        </member>
+        <member name="F:CkSoftware.GroupMe.Sdk.Core.Dao.GroupMeApiResultCode.ServiceUnavailable">
+            <summary>
+            Indicates that the requested service is not available currently, just try it again later. Currently occurs in async
+            processing when the result is not yet ready.
+            </summary>
+        </member>
+        <member name="T:CkSoftware.GroupMe.Sdk.Core.Dao.AttachmentType">
+            <summary>
+            The type for a message attachment.
+            </summary>
+        </member>
+        <member name="F:CkSoftware.GroupMe.Sdk.Core.Dao.AttachmentType.Default">
+            <summary>
+            Undefined attachment type, will result in an exception if tried to post an attachment with this type.
+            </summary>
+        </member>
+        <member name="F:CkSoftware.GroupMe.Sdk.Core.Dao.AttachmentType.Image">
+            <summary>
+            Image type attachment.
+            </summary>
+        </member>
+        <member name="F:CkSoftware.GroupMe.Sdk.Core.Dao.AttachmentType.Location">
+            <summary>
+            Location type attachment.
+            </summary>
+        </member>
+        <member name="F:CkSoftware.GroupMe.Sdk.Core.Dao.AttachmentType.Emoji">
+            <summary>
+            Emoji type attachment.
+            </summary>
+        </member>
+        <member name="T:CkSoftware.GroupMe.Sdk.Core.Dao.GroupMeImageAttachment">
+            <summary>
+            GroupMe message image attachment.
+            </summary>
+        </member>
+        <member name="P:CkSoftware.GroupMe.Sdk.Core.Dao.GroupMeImageAttachment.Type">
+            <summary>
+            Defines the type of the attachment implementation.
+            </summary>
+        </member>
+        <member name="P:CkSoftware.GroupMe.Sdk.Core.Dao.GroupMeImageAttachment.Url">
+            <summary>
+            The url of the image attachment. Must be an ImagingService image url according to the GroupMe API documentation.
+            </summary>
+        </member>
+        <member name="T:CkSoftware.GroupMe.Sdk.Core.Dao.GroupMeLocationAttachment">
+            <summary>
+            GroupMe message location attachment.
+            </summary>
+        </member>
+        <member name="M:CkSoftware.GroupMe.Sdk.Core.Dao.GroupMeLocationAttachment.AsCoordinates">
+            <summary>
+            Parses the current coordinates into a <see cref="T:System.Device.Location.GeoCoordinate"/> object.
+            </summary>
+            <exception cref="T:System.InvalidOperationException">Occurs if the Latitude or Longitude properties are empty.</exception>
+            <exception cref="T:System.FormatException">
+            Occurs if the given latitude or longitude cannot be parsed into a
+            <see cref="T:System.Device.Location.GeoCoordinate"/> object.
+            </exception>
+            <returns>The <see cref="T:System.Device.Location.GeoCoordinate"/> object instance representing this location.</returns>
+        </member>
+        <member name="P:CkSoftware.GroupMe.Sdk.Core.Dao.GroupMeLocationAttachment.Latitude">
+            <summary>
+            The latitude of the location.
+            </summary>
+        </member>
+        <member name="P:CkSoftware.GroupMe.Sdk.Core.Dao.GroupMeLocationAttachment.Longitude">
+            <summary>
+            The longitude of the location.
+            </summary>
+        </member>
+        <member name="P:CkSoftware.GroupMe.Sdk.Core.Dao.GroupMeLocationAttachment.Name">
+            <summary>
+            The name which should be displayed at this location.
+            </summary>
+        </member>
+        <member name="P:CkSoftware.GroupMe.Sdk.Core.Dao.GroupMeLocationAttachment.Type">
+            <summary>
+            Defines the type of the attachment implementation.
+            </summary>
+        </member>
+        <member name="T:CkSoftware.GroupMe.Sdk.Core.Dao.MetaData">
+            <summary>
+            GroupMe API response metadata DAO.
+            </summary>
+        </member>
+        <member name="P:CkSoftware.GroupMe.Sdk.Core.Dao.MetaData.Code">
+            <summary>
+            The raw GroupMe API response code.
+            </summary>
+        </member>
+        <member name="P:CkSoftware.GroupMe.Sdk.Core.Dao.MetaData.Errors">
+            <summary>
+            A List of error-messages which occured on the GroupMe API server. Either this or the SingleError Field is filled out if
+            an error occured.
+            </summary>
+        </member>
+        <member name="P:CkSoftware.GroupMe.Sdk.Core.Dao.MetaData.ParsedCode">
+            <summary>
+            The parsed GroupMe API result code.
+            </summary>
+        </member>
+        <member name="P:CkSoftware.GroupMe.Sdk.Core.Dao.MetaData.SingleError">
+            <summary>
+            A single error given by the GroupMe API. Either this or the Errors Field is filled out if an error occured.
+            </summary>
+        </member>
+        <member name="T:CkSoftware.GroupMe.Sdk.Core.Dao.PictureData">
+            <summary>
+            GroupMe ImagingService picture data offering multiple image-sizes.
+            </summary>
+        </member>
+        <member name="P:CkSoftware.GroupMe.Sdk.Core.Dao.PictureData.AvatarUrl">
+            <summary>
+            The url of the avatar-sized image version.
+            </summary>
+        </member>
+        <member name="P:CkSoftware.GroupMe.Sdk.Core.Dao.PictureData.LargeUrl">
+            <summary>
+            The url of the large-sized image version.
+            </summary>
+        </member>
+        <member name="P:CkSoftware.GroupMe.Sdk.Core.Dao.PictureData.PreviewUrl">
+            <summary>
+            The url of the preview-image sized image version.
+            </summary>
+        </member>
+        <member name="P:CkSoftware.GroupMe.Sdk.Core.Dao.PictureData.Url">
+            <summary>
+            The url of the original image version.
+            </summary>
+        </member>
+        <member name="T:CkSoftware.GroupMe.Sdk.Core.Enums.AsyncGroupMeApiStatus">
+            <summary>
+            Enum for any async GroupMe API action result. Currently used for the add members to group command.
+            </summary>
+        </member>
+        <member name="F:CkSoftware.GroupMe.Sdk.Core.Enums.AsyncGroupMeApiStatus.Default">
+            <summary>
+            Unknown status.
+            </summary>
+        </member>
+        <member name="F:CkSoftware.GroupMe.Sdk.Core.Enums.AsyncGroupMeApiStatus.ResultsNotYetReady">
+            <summary>
+            The results are not yet ready and are still processing.
+            </summary>
+        </member>
+        <member name="F:CkSoftware.GroupMe.Sdk.Core.Enums.AsyncGroupMeApiStatus.ResultsNoLongerAvailable">
+            <summary>
+            The operation is done, but the results are deleted due to a too long waiting time.
+            </summary>
+        </member>
+        <member name="F:CkSoftware.GroupMe.Sdk.Core.Enums.AsyncGroupMeApiStatus.OperationDone">
+            <summary>
+            The operation is done, results are available.
+            </summary>
+        </member>
+        <member name="T:CkSoftware.GroupMe.Sdk.Core.Exceptions.GroupMeException">
+            <summary>
+            Global exception for any GroupMe related error.
+            </summary>
+        </member>
+        <member name="M:CkSoftware.GroupMe.Sdk.Core.Exceptions.GroupMeException.#ctor(CkSoftware.GroupMe.Sdk.Core.Dao.MetaData)">
+            <summary>
+            Instantiates a new <see cref="T:CkSoftware.GroupMe.Sdk.Core.Exceptions.GroupMeException"/> with the given <see cref="P:CkSoftware.GroupMe.Sdk.Core.Exceptions.GroupMeException.MetaData"/>.
+            </summary>
+            <param name="meta">The metadata used for this exception.</param>
+        </member>
+        <member name="P:CkSoftware.GroupMe.Sdk.Core.Exceptions.GroupMeException.MetaData">
+            <summary>
+            The metadata supplied by the GroupMe API.
+            </summary>
+        </member>
+        <member name="T:CkSoftware.GroupMe.Sdk.Core.FileUploadWebApiCommandParameter">
+            <summary>
+            CommandParameter for a FileUpload based WebApi command. Used currently for image-upload to the imaging service.
+            </summary>
+        </member>
+        <member name="T:CkSoftware.GroupMe.Sdk.Core.IWebApiCommandParameters">
+            <summary>
+            Marker interface for WebApi command parameters.
+            </summary>
+        </member>
+        <member name="M:CkSoftware.GroupMe.Sdk.Core.FileUploadWebApiCommandParameter.#ctor(System.String,System.String,System.String)">
+            <summary>
+            Instantiate a new <see cref="T:CkSoftware.GroupMe.Sdk.Core.FileUploadWebApiCommandParameter"/> using the given web-url, name and filename.
+            </summary>
+            <param name="webUrlToFile">
+            The url to a web-location which will be downloaded immediately and stored in the FileData
+            property.
+            </param>
+            <param name="name">The name of the upload. This will be used by the content-processing for naming a given HTTP content.</param>
+            <param name="fileName">The file-name of the given file.</param>
+        </member>
+        <member name="M:CkSoftware.GroupMe.Sdk.Core.FileUploadWebApiCommandParameter.#ctor(System.IO.Stream,System.String,System.String)">
+            <summary>
+            Instantiate a new <see cref="T:CkSoftware.GroupMe.Sdk.Core.FileUploadWebApiCommandParameter"/> using the given fileData stream, name and filename.
+            </summary>
+            <param name="fileData">The stream which should be used as file-upload.</param>
+            <param name="name">The name of the upload. This will be used by the content-processing for naming a given HTTP content.</param>
+            <param name="fileName">The file-name of the given file.</param>
+        </member>
+        <member name="P:CkSoftware.GroupMe.Sdk.Core.FileUploadWebApiCommandParameter.FileData">
+            <summary>
+            The stream of the file data to upload.
+            </summary>
+        </member>
+        <member name="P:CkSoftware.GroupMe.Sdk.Core.FileUploadWebApiCommandParameter.FileName">
+            <summary>
+            The file-name of the given file.
+            </summary>
+        </member>
+        <member name="P:CkSoftware.GroupMe.Sdk.Core.FileUploadWebApiCommandParameter.Name">
+            <summary>
+            The name of the upload. This will be used by the content-processing for naming a given HTTP content.
+            </summary>
+        </member>
+        <member name="T:CkSoftware.GroupMe.Sdk.Core.Interfaces.IPagedCollection`1">
+            <summary>
+            Interface for a paged collection.
+            </summary>
+            <typeparam name="TEntity">The entity type of a single entry.</typeparam>
+        </member>
+        <member name="M:CkSoftware.GroupMe.Sdk.Core.Interfaces.IPagedCollection`1.FetchAll">
+            <summary>
+            Fetches all entities until there are no more entities available.
+            </summary>
+            <returns>The awaitable <see cref="T:System.Threading.Tasks.Task"/>.</returns>
+        </member>
+        <member name="M:CkSoftware.GroupMe.Sdk.Core.Interfaces.IPagedCollection`1.FetchNext">
+            <summary>
+            Fetch the next page for the paged entities.
+            </summary>
+            <returns>
+            The result of the fetch, false if there were no more entities fetched, true if there were new entities
+            available.
+            </returns>
+        </member>
+        <member name="P:CkSoftware.GroupMe.Sdk.Core.Interfaces.IPagedCollection`1.Entries">
+            <summary>
+            List of all entities fetched.
+            </summary>
+        </member>
+        <member name="P:CkSoftware.GroupMe.Sdk.Core.Interfaces.IPagedCollection`1.NewEntries">
+            <summary>
+            List of entities fetched in the last FetchNext call.
+            </summary>
+        </member>
+        <member name="T:CkSoftware.GroupMe.Sdk.Core.IWebApiAccess">
+            <summary>
+            Basic WebApi Access.
+            </summary>
+        </member>
+        <member name="M:CkSoftware.GroupMe.Sdk.Core.IWebApiAccess.ExecuteCommand``1(CkSoftware.GroupMe.Sdk.Core.IWebApiCommand{``0})">
+            <summary>
+            Executes the given command asynchronousely and returns an awaitable task containing the expected result.
+            </summary>
+            <typeparam name="TResultEntity">Result entity which will be deserialized from the WebApi / REST service.</typeparam>
+            <param name="command">The command to execute.</param>
+            <returns>Awaitable task returning the given result entity.</returns>
+        </member>
+        <member name="P:CkSoftware.GroupMe.Sdk.Core.IWebApiAccess.AccessTokenParameter">
+            <summary>
+            Parameter name to override if non-standard token url parameter is required.
+            </summary>
+        </member>
+        <member name="T:CkSoftware.GroupMe.Sdk.Core.IWebApiCommand`1">
+            <summary>
+            Defines a command which can be executed by the WebApiAccess.
+            </summary>
+            <typeparam name="TResultEntity">The entity which will be expected from this command.</typeparam>
+        </member>
+        <member name="P:CkSoftware.GroupMe.Sdk.Core.IWebApiCommand`1.CommandExecuted">
+            <summary>
+            Defines if the command is executed once.
+            </summary>
+        </member>
+        <member name="P:CkSoftware.GroupMe.Sdk.Core.IWebApiCommand`1.CommandName">
+            <summary>
+            The name of the command to be executed.
+            </summary>
+        </member>
+        <member name="P:CkSoftware.GroupMe.Sdk.Core.IWebApiCommand`1.HttpMethod">
+            <summary>
+            The http method to execute this command.
+            </summary>
+        </member>
+        <member name="P:CkSoftware.GroupMe.Sdk.Core.IWebApiCommand`1.Parameters">
+            <summary>
+            The parameters which should be used on command execution.
+            </summary>
+        </member>
+        <member name="T:CkSoftware.GroupMe.Sdk.Core.Serialization.GroupMeAttachmentConverter">
+            <summary>
+            <see cref="T:Newtonsoft.Json.JsonConverter"/> for <see cref="T:CkSoftware.GroupMe.Sdk.Core.Dao.GroupMeAttachmentBase"/>.
+            </summary>
+        </member>
+        <member name="M:CkSoftware.GroupMe.Sdk.Core.Serialization.GroupMeAttachmentConverter.CanConvert(System.Type)">
+            <summary>
+            Determines whether this instance can convert the specified object type.
+            </summary>
+            <param name="objectType">Type of the object.</param>
+            <returns>
+            <c>true</c> if this instance can convert the specified object type; otherwise, <c>false</c>.
+            </returns>
+        </member>
+        <member name="M:CkSoftware.GroupMe.Sdk.Core.Serialization.GroupMeAttachmentConverter.ReadJson(Newtonsoft.Json.JsonReader,System.Type,System.Object,Newtonsoft.Json.JsonSerializer)">
+            <summary>
+            Reads the JSON representation of the object.
+            </summary>
+            <param name="reader">The <see cref="T:Newtonsoft.Json.JsonReader" /> to read from.</param>
+            <param name="objectType">Type of the object.</param>
+            <param name="existingValue">The existing value of object being read.</param>
+            <param name="serializer">The calling serializer.</param>
+            <returns>
+            The object value.
+            </returns>
+        </member>
+        <member name="M:CkSoftware.GroupMe.Sdk.Core.Serialization.GroupMeAttachmentConverter.WriteJson(Newtonsoft.Json.JsonWriter,System.Object,Newtonsoft.Json.JsonSerializer)">
+            <summary>
+            Writes the JSON representation of the object.
+            </summary>
+            <param name="writer">The <see cref="T:Newtonsoft.Json.JsonWriter" /> to write to.</param>
+            <param name="value">The value.</param>
+            <param name="serializer">The calling serializer.</param>
+        </member>
+        <member name="T:CkSoftware.GroupMe.Sdk.Core.Serialization.GroupMeEmojiMapConverter">
+            <summary>
+            Custom Json converter for Emoji Definitions.
+            </summary>
+        </member>
+        <member name="M:CkSoftware.GroupMe.Sdk.Core.Serialization.GroupMeEmojiMapConverter.WriteJson(Newtonsoft.Json.JsonWriter,System.Object,Newtonsoft.Json.JsonSerializer)">
+            <summary>
+            Writes the JSON representation of the object.
+            </summary>
+            <param name="writer">The <see cref="T:Newtonsoft.Json.JsonWriter" /> to write to.</param>
+            <param name="value">The value.</param>
+            <param name="serializer">The calling serializer.</param>
+        </member>
+        <member name="M:CkSoftware.GroupMe.Sdk.Core.Serialization.GroupMeEmojiMapConverter.ReadJson(Newtonsoft.Json.JsonReader,System.Type,System.Object,Newtonsoft.Json.JsonSerializer)">
+            <summary>
+            Reads the JSON representation of the object.
+            </summary>
+            <param name="reader">The <see cref="T:Newtonsoft.Json.JsonReader" /> to read from.</param>
+            <param name="objectType">Type of the object.</param>
+            <param name="existingValue">The existing value of object being read.</param>
+            <param name="serializer">The calling serializer.</param>
+            <returns>
+            The object value.
+            </returns>
+        </member>
+        <member name="M:CkSoftware.GroupMe.Sdk.Core.Serialization.GroupMeEmojiMapConverter.CanConvert(System.Type)">
+            <summary>
+            Determines whether this instance can convert the specified object type.
+            </summary>
+            <param name="objectType">Type of the object.</param>
+            <returns>
+            <c>true</c> if this instance can convert the specified object type; otherwise, <c>false</c>.
+            </returns>
+        </member>
+        <member name="T:CkSoftware.GroupMe.Sdk.Core.WebApiAccess">
+            <summary>
+            Basic WebApi Access Class.
+            </summary>
+        </member>
+        <member name="F:CkSoftware.GroupMe.Sdk.Core.WebApiAccess._baseUrl">
+            <summary>
+            The Base-URL for the WebApi / REST Service.
+            </summary>
+        </member>
+        <member name="F:CkSoftware.GroupMe.Sdk.Core.WebApiAccess._httpClient">
+            <summary>
+            The HTTP Client used for communitcation with the server.
+            </summary>
+        </member>
+        <member name="M:CkSoftware.GroupMe.Sdk.Core.WebApiAccess.#ctor(System.String,System.String)">
+            <summary>
+            Instantiates a new WebApiAccess instance for the given base-url.
+            </summary>
+            <param name="baseUrl">
+            The base-url for the WebApi / REST Service.
+            <remarks>
+            Will be concatenated with the command name (base-url "http://tempuri.org/api" and command name "members" will
+            result in "http://tempuri.org/api/members").
+            </remarks>
+            </param>
+            <param name="accessToken">The Access Token which will be added for each request.</param>
+        </member>
+        <member name="M:CkSoftware.GroupMe.Sdk.Core.WebApiAccess.ExecuteCommand``1(CkSoftware.GroupMe.Sdk.Core.IWebApiCommand{``0})">
+            <summary>
+            Executes the given command asynchronousely and returns an awaitable task containing the expected result.
+            </summary>
+            <typeparam name="TResultEntity">Result entity which will be deserialized from the WebApi / REST service.</typeparam>
+            <param name="command">The command to execute.</param>
+            <returns>Awaitable task returning the given result entity.</returns>
+        </member>
+        <member name="M:CkSoftware.GroupMe.Sdk.Core.WebApiAccess.AddQueryStringToUriForParameters(System.Uri,CkSoftware.GroupMe.Sdk.Core.IWebApiCommandParameters)">
+            <summary>
+            Generates a query-string for the given parameters public properties, respecting JsonProperty attributes.
+            </summary>
+            <param name="requestUri">The Uri which should be enhanced.</param>
+            <param name="parameters">The parameters to create the query-string from.</param>
+            <returns>The generated query-string for the parameter.</returns>
+        </member>
+        <member name="M:CkSoftware.GroupMe.Sdk.Core.WebApiAccess.CreateRequestUrlForCommand(System.String)">
+            <summary>
+            Creates the request url for the given command name.
+            </summary>
+            <param name="commandName">The command name to be used, must not contain any non alphanumeric characters.</param>
+            <returns>The usable request url for the current WebApiAccess with the given command name.</returns>
+        </member>
+        <member name="M:CkSoftware.GroupMe.Sdk.Core.WebApiAccess.GetJsonResultFromCommand(System.String,CkSoftware.GroupMe.Sdk.Core.IWebApiCommandParameters,System.Net.Http.HttpMethod)">
+            <summary>
+            Asynchronousely executes the given command name with the given parameters using the given http method.
+            </summary>
+            <param name="commandName">The command name which should be executed.</param>
+            <param name="parameters">The parameters object containing the parameters which should be attached to the request.</param>
+            <param name="httpMethod">
+            The http method which should be executed.
+            <remarks>Only POST, PUT and GET are currently supported.</remarks>
+            </param>
+            <returns>Awaitable task returning the response body as string.</returns>
+        </member>
+        <member name="M:CkSoftware.GroupMe.Sdk.Core.WebApiAccess.GetNameForPropertyIncludingJsonFieldDefinition(System.Reflection.PropertyInfo)">
+            <summary>
+            Reads the JsonPropertyAttribute out of the given PropertyInfo object or returns just the name of the property.
+            </summary>
+            <param name="publicProperty">The PropertyInfo to read the name from.</param>
+            <returns>The defined JsonPropertyAttribute.PropertyName or just the name of the property.</returns>
+        </member>
+        <member name="M:CkSoftware.GroupMe.Sdk.Core.WebApiAccess.ParseJsonResultToEntity``1(System.String)">
+            <summary>
+            Asynchronousely parses the result into the given typed object.
+            </summary>
+            <typeparam name="TEntityType">The type which the data should be deserialized to.</typeparam>
+            <param name="jsonResult">The json result containing the data to deserialize.</param>
+            <returns>The deserialized data.</returns>
+        </member>
+        <member name="M:CkSoftware.GroupMe.Sdk.Core.WebApiAccess.SerializeParameters(CkSoftware.GroupMe.Sdk.Core.IWebApiCommandParameters)">
+            <summary>
+            Serializes the given parameters object using JsonConvert.
+            </summary>
+            <param name="parameters">The parameters to serialize.</param>
+            <returns>The serialized representation of the parameters.</returns>
+        </member>
+        <member name="P:CkSoftware.GroupMe.Sdk.Core.WebApiAccess.AccessTokenParameter">
+            <summary>
+            The name of the access-token url-parameter.
+            </summary>
+        </member>
+    </members>
+</doc>

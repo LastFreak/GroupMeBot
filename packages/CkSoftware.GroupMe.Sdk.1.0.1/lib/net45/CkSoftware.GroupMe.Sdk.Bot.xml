@@ -1,0 +1,409 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>CkSoftware.GroupMe.Sdk.Bot</name>
+    </assembly>
+    <members>
+        <member name="T:CkSoftware.GroupMe.Sdk.Bot.GroupMeBotFactory">
+            <summary>
+            Factory class to craete and index any GroupMe bots.
+            </summary>
+        </member>
+        <member name="M:CkSoftware.GroupMe.Sdk.Bot.GroupMeBotFactory.#ctor(CkSoftware.GroupMe.Sdk.Core.IWebApiAccess)">
+            <summary>
+            Instantiates the <see cref="T:CkSoftware.GroupMe.Sdk.Bot.GroupMeBotFactory"/> with the given <see cref="T:CkSoftware.GroupMe.Sdk.Core.IWebApiAccess"/>.
+            </summary>
+            <param name="webApiAccess">The <see cref="T:CkSoftware.GroupMe.Sdk.Core.IWebApiAccess"/> to use.</param>
+        </member>
+        <member name="M:CkSoftware.GroupMe.Sdk.Bot.GroupMeBotFactory.CreateBot(System.String,System.String)">
+            <summary>
+            Instantiates a new <see cref="T:CkSoftware.GroupMe.Sdk.Bot.GroupMeBot"/> class with the given bot-name and group id. The bot is NOT started
+            already, he must be started manually by using the StartBot() or StartBotAsync() method.
+            </summary>
+            <param name="name">The name of the new Bot.</param>
+            <param name="groupId">The group id where the bot should live in.</param>
+            <returns>The constructed <see cref="T:CkSoftware.GroupMe.Sdk.Bot.GroupMeBot"/> class.</returns>
+        </member>
+        <member name="M:CkSoftware.GroupMe.Sdk.Bot.GroupMeBotFactory.GetAllBots">
+            <summary>
+            Reads all currently registered bots at GroupMe and returns them as <see cref="T:CkSoftware.GroupMe.Sdk.Bot.GroupMeBot"/> instances, ready to send
+            messages.
+            </summary>
+            <returns>Awaitable <see cref="T:System.Threading.Tasks.Task"/> resulting in a list of <see cref="T:CkSoftware.GroupMe.Sdk.Bot.GroupMeBot"/> instances.</returns>
+        </member>
+        <member name="M:CkSoftware.GroupMe.Sdk.Bot.GroupMeBotFactory.GetFirstBotByNameAndGroup(System.String,System.String)">
+            <summary>
+            Tries to find the bot using the given bot-name and group id.
+            </summary>
+            <param name="name">The bot name to search for (case insensitive).</param>
+            <param name="groupId">the group-id where the bot should live in.</param>
+            <exception cref="T:System.InvalidOperationException">Occurs when there is no bot with the given name and group-id.</exception>
+            <returns>
+            Awaitable task resulting in an instance of <see cref="T:CkSoftware.GroupMe.Sdk.Bot.GroupMeBot"/> if the bot was found. Throws exception if
+            not!
+            </returns>
+        </member>
+        <member name="T:CkSoftware.GroupMe.Sdk.Bot.Commands.BotIndexCommand">
+            <summary>
+            Bot index command (GroupMe documentation: <see href="https://dev.groupme.com/docs/v3#bots_index" />).
+            </summary>
+        </member>
+        <member name="P:CkSoftware.GroupMe.Sdk.Bot.Commands.BotIndexCommand.CommandName">
+            <summary>
+            The name of the command to be executed.
+            </summary>
+        </member>
+        <member name="P:CkSoftware.GroupMe.Sdk.Bot.Commands.BotIndexCommand.HttpMethod">
+            <summary>
+            The http method to execute this command.
+            </summary>
+        </member>
+        <member name="P:CkSoftware.GroupMe.Sdk.Bot.Commands.BotIndexCommand.Parameters">
+            <summary>
+            The parameters which should be used on command execution.
+            </summary>
+        </member>
+        <member name="P:CkSoftware.GroupMe.Sdk.Bot.Commands.BotIndexCommand.CommandExecuted">
+            <summary>
+            Defines if the command is executed once.
+            </summary>
+        </member>
+        <member name="T:CkSoftware.GroupMe.Sdk.Bot.Commands.CreateBotCommand">
+            <summary>
+            The create bot command (GroupMe documentation: <see href="https://dev.groupme.com/docs/v3#bots_create" />).
+            </summary>
+        </member>
+        <member name="M:CkSoftware.GroupMe.Sdk.Bot.Commands.CreateBotCommand.#ctor(System.String,System.String)">
+            <summary>
+            Instantiates a new CreateBot command.
+            </summary>
+            <param name="botName">The name of the new bot.</param>
+            <param name="groupId">The group id where the bot should live.</param>
+        </member>
+        <member name="M:CkSoftware.GroupMe.Sdk.Bot.Commands.CreateBotCommand.WithAvatar(System.String)">
+            <summary>
+            Defines that the bot should contain the given avatar image.
+            </summary>
+            <param name="avatarUrl">
+            The url of the avatar image (must be a GroupMe ImagingService image according to the GroupMe
+            documentation).
+            </param>
+            <returns>The extended CreateBotCommand.</returns>
+        </member>
+        <member name="M:CkSoftware.GroupMe.Sdk.Bot.Commands.CreateBotCommand.WithCallback(System.String)">
+            <summary>
+            Defines that the bot should have a callback url.
+            </summary>
+            <param name="callbackUrl">The callback url where the bot should receive any callbacks.</param>
+            <returns>The extended CreateBotCommand.</returns>
+        </member>
+        <member name="P:CkSoftware.GroupMe.Sdk.Bot.Commands.CreateBotCommand.CommandName">
+            <summary>
+            The name of the command to be executed.
+            </summary>
+        </member>
+        <member name="P:CkSoftware.GroupMe.Sdk.Bot.Commands.CreateBotCommand.HttpMethod">
+            <summary>
+            The http method to execute this command.
+            </summary>
+        </member>
+        <member name="P:CkSoftware.GroupMe.Sdk.Bot.Commands.CreateBotCommand.Parameters">
+            <summary>
+            The parameters which should be used on command execution.
+            </summary>
+        </member>
+        <member name="P:CkSoftware.GroupMe.Sdk.Bot.Commands.CreateBotCommand.CommandExecuted">
+            <summary>
+            Defines if the command is executed once.
+            </summary>
+        </member>
+        <member name="T:CkSoftware.GroupMe.Sdk.Bot.Commands.DestroyBotCommand">
+            <summary>
+            The destroy bot command (GroupMe documentation: <see href="https://dev.groupme.com/docs/v3#bots_destroy" />).
+            </summary>
+        </member>
+        <member name="M:CkSoftware.GroupMe.Sdk.Bot.Commands.DestroyBotCommand.#ctor(System.String)">
+            <summary>
+            Instantiates a new DestroyBot command.
+            </summary>
+            <param name="botId">The id of the bot which should be destroyed.</param>
+        </member>
+        <member name="P:CkSoftware.GroupMe.Sdk.Bot.Commands.DestroyBotCommand.CommandName">
+            <summary>
+            The name of the command to be executed.
+            </summary>
+        </member>
+        <member name="P:CkSoftware.GroupMe.Sdk.Bot.Commands.DestroyBotCommand.HttpMethod">
+            <summary>
+            The http method to execute this command.
+            </summary>
+        </member>
+        <member name="P:CkSoftware.GroupMe.Sdk.Bot.Commands.DestroyBotCommand.Parameters">
+            <summary>
+            The parameters which should be used on command execution.
+            </summary>
+        </member>
+        <member name="P:CkSoftware.GroupMe.Sdk.Bot.Commands.DestroyBotCommand.CommandExecuted">
+            <summary>
+            Defines if the command is executed once.
+            </summary>
+        </member>
+        <member name="T:CkSoftware.GroupMe.Sdk.Bot.Dao.BotDataResponse">
+            <summary>
+            The response wrapper of the create-bot command.
+            </summary>
+        </member>
+        <member name="P:CkSoftware.GroupMe.Sdk.Bot.Dao.BotDataResponse.Bot">
+            <summary>
+            The bot-data of the newly created bot.
+            </summary>
+        </member>
+        <member name="T:CkSoftware.GroupMe.Sdk.Bot.Dao.DestroyBotParameters">
+            <summary>
+            The parameters for the <see cref="T:CkSoftware.GroupMe.Sdk.Bot.Commands.DestroyBotCommand"/>.
+            </summary>
+        </member>
+        <member name="T:CkSoftware.GroupMe.Sdk.Bot.Dao.BotData">
+            <summary>
+            The BotData DAO returned by various bot-API requests (index, create).
+            </summary>
+        </member>
+        <member name="P:CkSoftware.GroupMe.Sdk.Bot.Dao.BotData.AvatarPicture">
+            <summary>
+            The bot avatar picture as <see cref="T:CkSoftware.GroupMe.Sdk.Core.Dao.PictureData"/> reference.
+            </summary>
+        </member>
+        <member name="P:CkSoftware.GroupMe.Sdk.Bot.Dao.BotData.AvatarUrl">
+            <summary>
+            The plain avatar url property given by the API.
+            </summary>
+        </member>
+        <member name="P:CkSoftware.GroupMe.Sdk.Bot.Dao.BotData.CallbackUrl">
+            <summary>
+            The registered callback URL.
+            </summary>
+        </member>
+        <member name="P:CkSoftware.GroupMe.Sdk.Bot.Dao.BotData.GroupId">
+            <summary>
+            The group id where the bot is living.
+            </summary>
+        </member>
+        <member name="P:CkSoftware.GroupMe.Sdk.Bot.Dao.BotData.GroupName">
+            <summary>
+            The group name where the bot is living (undocumented by GroupMe).
+            </summary>
+        </member>
+        <member name="P:CkSoftware.GroupMe.Sdk.Bot.Dao.BotData.Id">
+            <summary>
+            The id of the bot.
+            </summary>
+        </member>
+        <member name="P:CkSoftware.GroupMe.Sdk.Bot.Dao.BotData.Name">
+            <summary>
+            The display-name of the bot.
+            </summary>
+        </member>
+        <member name="T:CkSoftware.GroupMe.Sdk.Bot.Commands.PostBotMessageCommand">
+            <summary>
+            The post botmessage command (GroupMe documentation: <see href="https://dev.groupme.com/docs/v3#bots_post" />).
+            </summary>
+        </member>
+        <member name="M:CkSoftware.GroupMe.Sdk.Bot.Commands.PostBotMessageCommand.#ctor(System.String,System.String)">
+            <summary>
+            Instantiates a new PostBotMessageCommand.
+            </summary>
+            <param name="botId">The id of the bot with which the message should be posted.</param>
+            <param name="message">The message string.</param>
+        </member>
+        <member name="M:CkSoftware.GroupMe.Sdk.Bot.Commands.PostBotMessageCommand.WithAttachment(CkSoftware.GroupMe.Sdk.Core.Dao.GroupMeAttachmentBase)">
+            <summary>
+            Defines that the bot-message should contain the given attachment.
+            </summary>
+            <param name="attachment">The attachment to add to the bot-message.</param>
+            <returns>The extended PostBotMessageCommand.</returns>
+            <exception cref="T:System.ArgumentNullException">Occurs if the attachment is null.</exception>
+            <exception cref="T:System.ArgumentException">Occurs if the attachment-type is not set.</exception>
+        </member>
+        <member name="P:CkSoftware.GroupMe.Sdk.Bot.Commands.PostBotMessageCommand.CommandName">
+            <summary>
+            The name of the command to be executed.
+            </summary>
+        </member>
+        <member name="P:CkSoftware.GroupMe.Sdk.Bot.Commands.PostBotMessageCommand.HttpMethod">
+            <summary>
+            The http method to execute this command.
+            </summary>
+        </member>
+        <member name="P:CkSoftware.GroupMe.Sdk.Bot.Commands.PostBotMessageCommand.Parameters">
+            <summary>
+            The parameters which should be used on command execution.
+            </summary>
+        </member>
+        <member name="P:CkSoftware.GroupMe.Sdk.Bot.Commands.PostBotMessageCommand.CommandExecuted">
+            <summary>
+            Defines if the command is executed once.
+            </summary>
+        </member>
+        <member name="T:CkSoftware.GroupMe.Sdk.Bot.Dao.CreateBotParameters">
+            <summary>
+            The parameters for the <see cref="T:CkSoftware.GroupMe.Sdk.Bot.Commands.CreateBotCommand"/>.
+            </summary>
+        </member>
+        <member name="P:CkSoftware.GroupMe.Sdk.Bot.Dao.CreateBotParameters.Bot">
+            <summary>
+            The bot-data used to create a new bot.
+            </summary>
+        </member>
+        <member name="T:CkSoftware.GroupMe.Sdk.Bot.Dao.PostBotMessageParameters">
+            <summary>
+            The parameters for the <see cref="T:CkSoftware.GroupMe.Sdk.Bot.Commands.PostBotMessageCommand"/>.
+            </summary>
+        </member>
+        <member name="M:CkSoftware.GroupMe.Sdk.Bot.Dao.PostBotMessageParameters.#ctor">
+            <summary>
+            Instantiates a new <see cref="T:CkSoftware.GroupMe.Sdk.Bot.Dao.PostBotMessageParameters"/> class.
+            </summary>
+        </member>
+        <member name="P:CkSoftware.GroupMe.Sdk.Bot.Dao.PostBotMessageParameters.Attachments">
+            <summary>
+            The list of attachments in the <see cref="T:CkSoftware.GroupMe.Sdk.Bot.Commands.PostBotMessageCommand"/>.
+            </summary>
+        </member>
+        <member name="P:CkSoftware.GroupMe.Sdk.Bot.Dao.PostBotMessageParameters.BotId">
+            <summary>
+            The bot id used to post the new message.
+            </summary>
+        </member>
+        <member name="P:CkSoftware.GroupMe.Sdk.Bot.Dao.PostBotMessageParameters.Message">
+            <summary>
+            The message content to post.
+            </summary>
+        </member>
+        <member name="T:CkSoftware.GroupMe.Sdk.Bot.GroupMeBot">
+            <summary>
+            Management class for creating, starting and stopping a bot and for sending messages through a running bot.
+            </summary>
+        </member>
+        <member name="M:CkSoftware.GroupMe.Sdk.Bot.GroupMeBot.#ctor(CkSoftware.GroupMe.Sdk.Core.IWebApiAccess,System.String,System.String)">
+            <summary>
+            Instantiates a new <see cref="T:CkSoftware.GroupMe.Sdk.Bot.GroupMeBot"/> class and creates a new bot with the given data.
+            </summary>
+            <param name="webApiAccess">The <see cref="T:CkSoftware.GroupMe.Sdk.Core.IWebApiAccess"/> to access the GroupMe API.</param>
+            <param name="name">The name of the new bot to craete.</param>
+            <param name="groupId">The group id where the new bot should live in.</param>
+            <exception cref="T:System.ArgumentNullException">Occurs if the webApiAccess is null.</exception>
+        </member>
+        <member name="M:CkSoftware.GroupMe.Sdk.Bot.GroupMeBot.#ctor(CkSoftware.GroupMe.Sdk.Core.IWebApiAccess,CkSoftware.GroupMe.Sdk.Bot.Dao.BotData)">
+            <summary>
+            Instantiate a new <see cref="T:CkSoftware.GroupMe.Sdk.Bot.GroupMeBot"/> class with the given bot-data.
+            </summary>
+            <param name="webApiAccess">The <see cref="T:CkSoftware.GroupMe.Sdk.Core.IWebApiAccess"/> to access the GroupMe API.</param>
+            <param name="botData">The bot data to use for already created bots.</param>
+            <exception cref="T:System.ArgumentNullException">Occurs if either the webApiAccess or the botData is null.</exception>
+        </member>
+        <member name="M:CkSoftware.GroupMe.Sdk.Bot.GroupMeBot.DestroyBot">
+            <summary>
+            Destroys the currently assigned bot. The bot will no longer be available on GroupMe and needs to be recreated either
+            using the GroupMe UI or using the StartBot command.
+            </summary>
+        </member>
+        <member name="M:CkSoftware.GroupMe.Sdk.Bot.GroupMeBot.DestroyBotAsync">
+            <summary>
+            Destroys the currently assigned bot asynchronous. The bot will no longer be available on GroupMe and needs to be
+            recreated either using the GroupMe UI or using the StartBotAsync command.
+            </summary>
+            <returns>The awaitable task.</returns>
+        </member>
+        <member name="M:CkSoftware.GroupMe.Sdk.Bot.GroupMeBot.SendMessage(System.String)">
+            <summary>
+            Creates a new <see cref="T:CkSoftware.GroupMe.Sdk.Bot.GroupMeBotSendMessage"/>, ready to be sent on behalf of this bot. To send the message, call
+            the Submit() or SubmitAsync() method.
+            </summary>
+            <param name="message">The message text to send.</param>
+            <returns>The correctly contructed <see cref="T:CkSoftware.GroupMe.Sdk.Bot.GroupMeBotSendMessage"/> object.</returns>
+        </member>
+        <member name="M:CkSoftware.GroupMe.Sdk.Bot.GroupMeBot.StartBot">
+            <summary>
+            Starts the bot using the currently assigned bot-data.
+            </summary>
+            <exception cref="T:System.NotSupportedException">Occurs if the bot is already started.</exception>
+            <returns>The started bot management class.</returns>
+        </member>
+        <member name="M:CkSoftware.GroupMe.Sdk.Bot.GroupMeBot.StartBotAsync">
+            <summary>
+            Starts the bot using the currently assigned bot-data asynchronous.
+            </summary>
+            <exception cref="T:System.NotSupportedException">Occurs if the bot is already started.</exception>
+            <returns>The started bot management class inside a awaitable task.</returns>
+        </member>
+        <member name="M:CkSoftware.GroupMe.Sdk.Bot.GroupMeBot.WithAvatar(System.String)">
+            <summary>
+            Defines that the current bot should contain a avatar.
+            </summary>
+            <param name="imageUrl">The GroupMe imaging service image url.</param>
+            <exception cref="T:System.NotSupportedException">Occurs if the bot is already started.</exception>
+            <returns>The extended bot-management class.</returns>
+        </member>
+        <member name="M:CkSoftware.GroupMe.Sdk.Bot.GroupMeBot.WithCallback(System.String)">
+            <summary>
+            Defines that the current bot should contain a callback url.
+            </summary>
+            <param name="callbackUrl">The callback url of the bot.</param>
+            <exception cref="T:System.NotSupportedException">Occurs if the bot is already started.</exception>
+            <returns>The extended bot-management class.</returns>
+        </member>
+        <member name="P:CkSoftware.GroupMe.Sdk.Bot.GroupMeBot.Data">
+            <summary>
+            The currently assigned bot-data object, containing all GroupMe bot relevant data.
+            </summary>
+        </member>
+        <member name="T:CkSoftware.GroupMe.Sdk.Bot.GroupMeBotCallbackHandler">
+            <summary>
+            Handler for any bot callbacks.
+            </summary>
+        </member>
+        <member name="M:CkSoftware.GroupMe.Sdk.Bot.GroupMeBotCallbackHandler.Parse(System.String)">
+            <summary>
+            Parses the supplied bot-callback content and returns a <see cref="T:CkSoftware.GroupMe.Sdk.Core.Dao.GroupMeMessageData"/> object.
+            </summary>
+            <param name="callbackContent">The string content which was sent by the GroupMe callback call.</param>
+            <exception cref="T:System.IO.InvalidDataException">Occurs if the callbackContent is null or empty.</exception>
+            <returns>The constructed <see cref="T:CkSoftware.GroupMe.Sdk.Core.Dao.GroupMeMessageData"/> callback data.</returns>
+        </member>
+        <member name="T:CkSoftware.GroupMe.Sdk.Bot.GroupMeBotSendMessage">
+            <summary>
+            The bot send-message managing class responsible for submitting bot-message with or without attachments.
+            </summary>
+        </member>
+        <member name="M:CkSoftware.GroupMe.Sdk.Bot.GroupMeBotSendMessage.#ctor(CkSoftware.GroupMe.Sdk.Bot.GroupMeBot,System.String)">
+            <summary>
+            Instantiates a new <see cref="T:CkSoftware.GroupMe.Sdk.Bot.GroupMeBotSendMessage"/> class.
+            </summary>
+            <param name="bot">The bot for which the message should be sent.</param>
+            <param name="message">The message content.</param>
+        </member>
+        <member name="M:CkSoftware.GroupMe.Sdk.Bot.GroupMeBotSendMessage.Submit">
+            <summary>
+            Submits the message to the GroupMe API.
+            </summary>
+        </member>
+        <member name="M:CkSoftware.GroupMe.Sdk.Bot.GroupMeBotSendMessage.SubmitAsync">
+            <summary>
+            Submits the message to the GroupMe API asynchronous.
+            </summary>
+            <returns>An awaitable task.</returns>
+        </member>
+        <member name="M:CkSoftware.GroupMe.Sdk.Bot.GroupMeBotSendMessage.WithAttachment(CkSoftware.GroupMe.Sdk.Core.Dao.GroupMeAttachmentBase)">
+            <summary>
+            Defines that the message should contain a attachment.
+            </summary>
+            <param name="attachment">The attachment to add to the bot-message.</param>
+            <returns>The extended <see cref="T:CkSoftware.GroupMe.Sdk.Bot.GroupMeBotSendMessage"/> object.</returns>
+        </member>
+        <member name="T:CkSoftware.GroupMe.Sdk.Bot.NamespaceDoc">
+            <summary>
+            The <see cref="N:CkSoftware.GroupMe.Sdk.Bot"/> namespace contains all bot functionality (create, index, destroy, send message) for the GroupMe.Sdk.
+            </summary>
+        </member>
+    </members>
+</doc>

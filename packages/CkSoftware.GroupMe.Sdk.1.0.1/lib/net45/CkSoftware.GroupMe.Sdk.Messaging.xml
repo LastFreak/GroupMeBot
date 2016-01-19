@@ -1,0 +1,611 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>CkSoftware.GroupMe.Sdk.Messaging</name>
+    </assembly>
+    <members>
+        <member name="T:CkSoftware.GroupMe.Sdk.Messaging.Commands.DirectMessagesCreateCommand">
+            <summary>
+            Direct messages create command (GroupMe documentation: <see href="https://dev.groupme.com/docs/v3#direct_messages_create" />)
+            </summary>
+        </member>
+        <member name="M:CkSoftware.GroupMe.Sdk.Messaging.Commands.DirectMessagesCreateCommand.#ctor(System.String,System.String)">
+            <summary>
+            Instantiate a new <see cref="T:CkSoftware.GroupMe.Sdk.Messaging.Commands.DirectMessagesCreateCommand"/> using the given parameters.
+            </summary>
+            <param name="memberId">The memberId of the recipient (attention, must be the UserId, not the Id of a group user).</param>
+            <param name="sourceGuid">A identifier for the message, used for client-side message deduplication.</param>
+        </member>
+        <member name="M:CkSoftware.GroupMe.Sdk.Messaging.Commands.DirectMessagesCreateCommand.IsParametersValid">
+            <summary>
+            Validates the current direct-messages parameters.
+            </summary>
+            <returns>True if there is at least a text or an attachment available, otherwise false.</returns>
+        </member>
+        <member name="M:CkSoftware.GroupMe.Sdk.Messaging.Commands.DirectMessagesCreateCommand.WithAttachment(CkSoftware.GroupMe.Sdk.Core.Dao.GroupMeAttachmentBase)">
+            <summary>
+            Adds an attachment to the current <see cref="T:CkSoftware.GroupMe.Sdk.Messaging.Commands.DirectMessagesCreateCommand"/>.
+            </summary>
+            <param name="attachment">The attachment to add to the message.</param>
+            <returns>The extended <see cref="T:CkSoftware.GroupMe.Sdk.Messaging.Commands.DirectMessagesCreateCommand"/>.</returns>
+        </member>
+        <member name="M:CkSoftware.GroupMe.Sdk.Messaging.Commands.DirectMessagesCreateCommand.WithText(System.String)">
+            <summary>
+            Adds a text to the current message. Will replace the text if there is already a text defined.
+            </summary>
+            <param name="text">The text to add to the message.</param>
+            <returns>The extended <see cref="T:CkSoftware.GroupMe.Sdk.Messaging.Commands.DirectMessagesCreateCommand"/>.</returns>
+        </member>
+        <member name="P:CkSoftware.GroupMe.Sdk.Messaging.Commands.DirectMessagesCreateCommand.CommandExecuted">
+            <summary>
+            Defines if the command is executed once.
+            </summary>
+        </member>
+        <member name="P:CkSoftware.GroupMe.Sdk.Messaging.Commands.DirectMessagesCreateCommand.CommandName">
+            <summary>
+            The name of the command to be executed.
+            </summary>
+        </member>
+        <member name="P:CkSoftware.GroupMe.Sdk.Messaging.Commands.DirectMessagesCreateCommand.HttpMethod">
+            <summary>
+            The http method to execute this command.
+            </summary>
+        </member>
+        <member name="P:CkSoftware.GroupMe.Sdk.Messaging.Commands.DirectMessagesCreateCommand.Parameters">
+            <summary>
+            The parameters which should be used on command execution.
+            </summary>
+        </member>
+        <member name="T:CkSoftware.GroupMe.Sdk.Messaging.Commands.DirectMessagesIndexCommand">
+            <summary>
+            Direct messages index command (GroupMe documentation: <see href="https://dev.groupme.com/docs/v3#direct_messages_create" />).
+            </summary>
+        </member>
+        <member name="M:CkSoftware.GroupMe.Sdk.Messaging.Commands.DirectMessagesIndexCommand.#ctor(CkSoftware.GroupMe.Sdk.Messaging.Dao.DirectMessagesIndexParameters)">
+            <summary>
+            Instantiates a new <see cref="T:CkSoftware.GroupMe.Sdk.Messaging.Commands.DirectMessagesIndexCommand"/> with the given parameters.
+            </summary>
+            <param name="parameters">The <see cref="T:CkSoftware.GroupMe.Sdk.Messaging.Dao.DirectMessagesIndexParameters"/> to use.</param>
+        </member>
+        <member name="P:CkSoftware.GroupMe.Sdk.Messaging.Commands.DirectMessagesIndexCommand.CommandExecuted">
+            <summary>
+            Defines if the command is executed once.
+            </summary>
+        </member>
+        <member name="P:CkSoftware.GroupMe.Sdk.Messaging.Commands.DirectMessagesIndexCommand.CommandName">
+            <summary>
+            The name of the command to be executed.
+            </summary>
+        </member>
+        <member name="P:CkSoftware.GroupMe.Sdk.Messaging.Commands.DirectMessagesIndexCommand.HttpMethod">
+            <summary>
+            The http method to execute this command.
+            </summary>
+        </member>
+        <member name="P:CkSoftware.GroupMe.Sdk.Messaging.Commands.DirectMessagesIndexCommand.Parameters">
+            <summary>
+            The parameters which should be used on command execution.
+            </summary>
+        </member>
+        <member name="T:CkSoftware.GroupMe.Sdk.Messaging.Commands.MessageUnlikeCommand">
+            <summary>
+            Message unlike command (GroupMe documentation: <see href="https://dev.groupme.com/docs/v3#likes_destroy" />).
+            </summary>
+        </member>
+        <member name="M:CkSoftware.GroupMe.Sdk.Messaging.Commands.MessageUnlikeCommand.#ctor(System.String,System.String)">
+            <summary>
+            Creates a new Message Unlike command.
+            </summary>
+            <param name="conversationId">The Id of the parent conversation (can be a group-id or a user-id).</param>
+            <param name="messageId">The id of the message to unlike.</param>
+        </member>
+        <member name="P:CkSoftware.GroupMe.Sdk.Messaging.Commands.MessageUnlikeCommand.CommandExecuted">
+            <summary>
+            Defines if the command is executed once.
+            </summary>
+        </member>
+        <member name="P:CkSoftware.GroupMe.Sdk.Messaging.Commands.MessageUnlikeCommand.CommandName">
+            <summary>
+            The name of the command to be executed.
+            </summary>
+        </member>
+        <member name="P:CkSoftware.GroupMe.Sdk.Messaging.Commands.MessageUnlikeCommand.HttpMethod">
+            <summary>
+            The http method to execute this command.
+            </summary>
+        </member>
+        <member name="P:CkSoftware.GroupMe.Sdk.Messaging.Commands.MessageUnlikeCommand.Parameters">
+            <summary>
+            The parameters which should be used on command execution.
+            </summary>
+        </member>
+        <member name="T:CkSoftware.GroupMe.Sdk.Messaging.Commands.MessageLikeCommand">
+            <summary>
+            Message like command (GroupMe documentation: <see href="https://dev.groupme.com/docs/v3#likes_create" />).
+            </summary>
+        </member>
+        <member name="M:CkSoftware.GroupMe.Sdk.Messaging.Commands.MessageLikeCommand.#ctor(System.String,System.String)">
+            <summary>
+            Creates a new Message Like command.
+            </summary>
+            <param name="conversationId">The Id of the parent conversation (can be a group-id or a user-id).</param>
+            <param name="messageId">The id of the message to like.</param>
+        </member>
+        <member name="P:CkSoftware.GroupMe.Sdk.Messaging.Commands.MessageLikeCommand.CommandExecuted">
+            <summary>
+            Defines if the command is executed once.
+            </summary>
+        </member>
+        <member name="P:CkSoftware.GroupMe.Sdk.Messaging.Commands.MessageLikeCommand.CommandName">
+            <summary>
+            The name of the command to be executed.
+            </summary>
+        </member>
+        <member name="P:CkSoftware.GroupMe.Sdk.Messaging.Commands.MessageLikeCommand.HttpMethod">
+            <summary>
+            The http method to execute this command.
+            </summary>
+        </member>
+        <member name="P:CkSoftware.GroupMe.Sdk.Messaging.Commands.MessageLikeCommand.Parameters">
+            <summary>
+            The parameters which should be used on command execution.
+            </summary>
+        </member>
+        <member name="T:CkSoftware.GroupMe.Sdk.Messaging.Commands.GroupMessagesCreateCommand">
+            <summary>
+            Group messages create command (GroupMe documentation: <see href="https://dev.groupme.com/docs/v3#messages_create" />).
+            </summary>
+        </member>
+        <member name="M:CkSoftware.GroupMe.Sdk.Messaging.Commands.GroupMessagesCreateCommand.#ctor(System.String,System.String)">
+            <summary>
+            Instantiates a new <see cref="T:CkSoftware.GroupMe.Sdk.Messaging.Commands.GroupMessagesCreateCommand"/> with the given parameters.
+            </summary>
+            <param name="groupId">The group id where the message should be sent to.</param>
+            <param name="sourceGuid">A identifier for the message, used for client-side message deduplication.</param>
+        </member>
+        <member name="M:CkSoftware.GroupMe.Sdk.Messaging.Commands.GroupMessagesCreateCommand.IsParametersValid">
+            <summary>
+            Validates the current direct-messages parameters.
+            </summary>
+            <returns>True if there is at least a text or an attachment available, otherwise false.</returns>
+        </member>
+        <member name="M:CkSoftware.GroupMe.Sdk.Messaging.Commands.GroupMessagesCreateCommand.WithAttachment(CkSoftware.GroupMe.Sdk.Core.Dao.GroupMeAttachmentBase)">
+            <summary>
+            Adds an attachment to the current <see cref="T:CkSoftware.GroupMe.Sdk.Messaging.Commands.DirectMessagesCreateCommand"/>.
+            </summary>
+            <param name="attachment">The attachment to add to the message.</param>
+            <returns>The extended <see cref="T:CkSoftware.GroupMe.Sdk.Messaging.Commands.DirectMessagesCreateCommand"/>.</returns>
+        </member>
+        <member name="M:CkSoftware.GroupMe.Sdk.Messaging.Commands.GroupMessagesCreateCommand.WithText(System.String)">
+            <summary>
+            Adds a text to the current message. Will replace the text if there is already a text defined.
+            </summary>
+            <param name="text">The text to add to the message.</param>
+            <returns>The extended <see cref="T:CkSoftware.GroupMe.Sdk.Messaging.Commands.DirectMessagesCreateCommand"/>.</returns>
+        </member>
+        <member name="P:CkSoftware.GroupMe.Sdk.Messaging.Commands.GroupMessagesCreateCommand.CommandExecuted">
+            <summary>
+            Defines if the command is executed once.
+            </summary>
+        </member>
+        <member name="P:CkSoftware.GroupMe.Sdk.Messaging.Commands.GroupMessagesCreateCommand.CommandName">
+            <summary>
+            The name of the command to be executed.
+            </summary>
+        </member>
+        <member name="P:CkSoftware.GroupMe.Sdk.Messaging.Commands.GroupMessagesCreateCommand.HttpMethod">
+            <summary>
+            The http method to execute this command.
+            </summary>
+        </member>
+        <member name="P:CkSoftware.GroupMe.Sdk.Messaging.Commands.GroupMessagesCreateCommand.Parameters">
+            <summary>
+            The parameters which should be used on command execution.
+            </summary>
+        </member>
+        <member name="T:CkSoftware.GroupMe.Sdk.Messaging.Commands.GroupMessagesIndexCommand">
+            <summary>
+            Group messages index command (GroupMe documentation: <see href="https://dev.groupme.com/docs/v3#messages_index" />).
+            </summary>
+        </member>
+        <member name="M:CkSoftware.GroupMe.Sdk.Messaging.Commands.GroupMessagesIndexCommand.#ctor(CkSoftware.GroupMe.Sdk.Messaging.Dao.GroupMessagesIndexParameters)">
+            <summary>
+            Instantiates a new <see cref="T:CkSoftware.GroupMe.Sdk.Messaging.Commands.GroupMessagesIndexCommand"/> with the given parameters.
+            </summary>
+            <param name="parameters">The <see cref="T:CkSoftware.GroupMe.Sdk.Messaging.Dao.GroupMessagesIndexParameters"/> to use.</param>
+        </member>
+        <member name="P:CkSoftware.GroupMe.Sdk.Messaging.Commands.GroupMessagesIndexCommand.CommandExecuted">
+            <summary>
+            Defines if the command is executed once.
+            </summary>
+        </member>
+        <member name="P:CkSoftware.GroupMe.Sdk.Messaging.Commands.GroupMessagesIndexCommand.CommandName">
+            <summary>
+            The name of the command to be executed.
+            </summary>
+        </member>
+        <member name="P:CkSoftware.GroupMe.Sdk.Messaging.Commands.GroupMessagesIndexCommand.HttpMethod">
+            <summary>
+            The http method to execute this command.
+            </summary>
+        </member>
+        <member name="P:CkSoftware.GroupMe.Sdk.Messaging.Commands.GroupMessagesIndexCommand.Parameters">
+            <summary>
+            The parameters which should be used on command execution.
+            </summary>
+        </member>
+        <member name="T:CkSoftware.GroupMe.Sdk.Messaging.Dao.DirectMessageCreateData">
+            <summary>
+            The data to create a new direct-message using the <see cref="T:CkSoftware.GroupMe.Sdk.Messaging.Commands.DirectMessagesCreateCommand"/>.
+            </summary>
+        </member>
+        <member name="M:CkSoftware.GroupMe.Sdk.Messaging.Dao.DirectMessageCreateData.#ctor">
+            <summary>
+            Instantiates a new <see cref="T:CkSoftware.GroupMe.Sdk.Messaging.Dao.DirectMessageCreateData"/> object.
+            </summary>
+        </member>
+        <member name="P:CkSoftware.GroupMe.Sdk.Messaging.Dao.DirectMessageCreateData.Attachments">
+            <summary>
+            The attachments to be added to the message.
+            </summary>
+        </member>
+        <member name="P:CkSoftware.GroupMe.Sdk.Messaging.Dao.DirectMessageCreateData.SourceGuid">
+            <summary>
+            The source guid for the new message.
+            </summary>
+        </member>
+        <member name="P:CkSoftware.GroupMe.Sdk.Messaging.Dao.DirectMessageCreateData.Text">
+            <summary>
+            The text for the new message.
+            </summary>
+        </member>
+        <member name="P:CkSoftware.GroupMe.Sdk.Messaging.Dao.DirectMessageCreateData.RecipientId">
+            <summary>
+            The recipient userId for the new message.
+            </summary>
+        </member>
+        <member name="T:CkSoftware.GroupMe.Sdk.Messaging.Dao.DirectMessagesCreateParameters">
+            <summary>
+            Parameters for the <see cref="T:CkSoftware.GroupMe.Sdk.Messaging.Commands.DirectMessagesCreateCommand"/>.
+            </summary>
+        </member>
+        <member name="P:CkSoftware.GroupMe.Sdk.Messaging.Dao.DirectMessagesCreateParameters.Data">
+            <summary>
+            The data for the new direct-message to create.
+            </summary>
+        </member>
+        <member name="T:CkSoftware.GroupMe.Sdk.Messaging.Dao.DirectMessagesIndexParameters">
+            <summary>
+            The parameters for the <see cref="T:CkSoftware.GroupMe.Sdk.Messaging.Commands.DirectMessagesIndexCommand"/>.
+            </summary>
+        </member>
+        <member name="M:CkSoftware.GroupMe.Sdk.Messaging.Dao.DirectMessagesIndexParameters.#ctor(System.String,System.String,System.String)">
+            <summary>
+            Instantiates a new <see cref="T:CkSoftware.GroupMe.Sdk.Messaging.Dao.DirectMessagesIndexParameters"/> with the given parameters.
+            </summary>
+            <param name="memberId">The memberId for which the direct-messages should be loaded (will display the messages between the authenticated user and this user).</param>
+            <param name="beforeId">The message-id of the oldest already loaded message (for scrolling backward).</param>
+            <param name="sinceId">The message-id of the newest already loaded message (for scrolling forward).</param>
+        </member>
+        <member name="P:CkSoftware.GroupMe.Sdk.Messaging.Dao.DirectMessagesIndexParameters.BeforeId">
+            <summary>
+            The message-id of the oldest already loaded message (for scrolling backward).
+            </summary>
+        </member>
+        <member name="P:CkSoftware.GroupMe.Sdk.Messaging.Dao.DirectMessagesIndexParameters.MemberId">
+            <summary>
+            The memberId for which the direct-messages should be loaded (will display the messages between the authenticated user and this user).
+            </summary>
+        </member>
+        <member name="P:CkSoftware.GroupMe.Sdk.Messaging.Dao.DirectMessagesIndexParameters.SinceId">
+            <summary>
+            The message-id of the newest already loaded message (for scrolling forward).
+            </summary>
+        </member>
+        <member name="T:CkSoftware.GroupMe.Sdk.Messaging.Dao.GroupMessageCreateData">
+            <summary>
+            The data for a group message used by the <see cref="T:CkSoftware.GroupMe.Sdk.Messaging.Commands.GroupMessagesCreateCommand"/>.
+            </summary>
+        </member>
+        <member name="M:CkSoftware.GroupMe.Sdk.Messaging.Dao.GroupMessageCreateData.#ctor">
+            <summary>
+            Instantiates a new <see cref="T:CkSoftware.GroupMe.Sdk.Messaging.Dao.GroupMessageCreateData"/> object.
+            </summary>
+        </member>
+        <member name="P:CkSoftware.GroupMe.Sdk.Messaging.Dao.GroupMessageCreateData.Attachments">
+            <summary>
+            The attachments to add to the new message.
+            </summary>
+        </member>
+        <member name="P:CkSoftware.GroupMe.Sdk.Messaging.Dao.GroupMessageCreateData.SourceGuid">
+            <summary>
+            An identifier used for client-side deduplication.
+            </summary>
+        </member>
+        <member name="P:CkSoftware.GroupMe.Sdk.Messaging.Dao.GroupMessageCreateData.Text">
+            <summary>
+            The text for the new message.
+            </summary>
+        </member>
+        <member name="T:CkSoftware.GroupMe.Sdk.Messaging.Dao.GroupMessagesCreateParameters">
+            <summary>
+            The paramters for the <see cref="T:CkSoftware.GroupMe.Sdk.Messaging.Commands.GroupMessagesCreateCommand"/>.
+            </summary>
+        </member>
+        <member name="P:CkSoftware.GroupMe.Sdk.Messaging.Dao.GroupMessagesCreateParameters.Data">
+            <summary>
+            The data for the new message to add.
+            </summary>
+        </member>
+        <member name="T:CkSoftware.GroupMe.Sdk.Messaging.Dao.MessagesIndexData">
+            <summary>
+            The result data for the <see cref="T:CkSoftware.GroupMe.Sdk.Messaging.Commands.GroupMessagesIndexCommand"/>.
+            </summary>
+        </member>
+        <member name="P:CkSoftware.GroupMe.Sdk.Messaging.Dao.MessagesIndexData.Messages">
+            <summary>
+            The messages newly available.
+            </summary>
+        </member>
+        <member name="P:CkSoftware.GroupMe.Sdk.Messaging.Dao.MessagesIndexData.DirectMessages">
+            <summary>
+            This property should not be used, it is just an alias for the Newtonsoft Json Serializer / deserializer.
+            </summary>
+        </member>
+        <member name="P:CkSoftware.GroupMe.Sdk.Messaging.Dao.MessagesIndexData.TotalMessagesCount">
+            <summary>
+            The total amount of messages available in this group / direct-messages.
+            </summary>
+        </member>
+        <member name="T:CkSoftware.GroupMe.Sdk.Messaging.Dao.GroupMessagesIndexParameters">
+            <summary>
+            The parameters for the <see cref="T:CkSoftware.GroupMe.Sdk.Messaging.Commands.GroupMessagesIndexCommand"/>.
+            </summary>
+        </member>
+        <member name="M:CkSoftware.GroupMe.Sdk.Messaging.Dao.GroupMessagesIndexParameters.#ctor(System.String,System.String,System.String)">
+            <summary>
+            Instantiates a new <see cref="T:CkSoftware.GroupMe.Sdk.Messaging.Dao.GroupMessagesIndexParameters"/> object.
+            </summary>
+            <param name="groupId">The group id for which the messages should be loaded.</param>
+            <param name="beforeId">The message-id of the oldest already loaded message (for scrolling backward).</param>
+            <param name="sinceId">The message-id of the newest already loaded message (for scrolling forward).</param>
+        </member>
+        <member name="P:CkSoftware.GroupMe.Sdk.Messaging.Dao.GroupMessagesIndexParameters.BeforeId">
+            <summary>
+            The message-id of the oldest already loaded message (for scrolling backward).
+            </summary>
+        </member>
+        <member name="P:CkSoftware.GroupMe.Sdk.Messaging.Dao.GroupMessagesIndexParameters.GroupId">
+            <summary>
+            The group id for which the messages should be loaded.
+            </summary>
+        </member>
+        <member name="P:CkSoftware.GroupMe.Sdk.Messaging.Dao.GroupMessagesIndexParameters.SinceId">
+            <summary>
+            The message-id of the newest already loaded message (for scrolling forward).
+            </summary>
+        </member>
+        <member name="T:CkSoftware.GroupMe.Sdk.Messaging.Dao.LoadMessagesResultData">
+            <summary>
+            The state of a message load.
+            </summary>
+        </member>
+        <member name="M:CkSoftware.GroupMe.Sdk.Messaging.Dao.LoadMessagesResultData.#ctor">
+            <summary>
+            Instantiates a new <see cref="T:CkSoftware.GroupMe.Sdk.Messaging.Dao.LoadMessagesResultData"/> object.
+            </summary>
+        </member>
+        <member name="P:CkSoftware.GroupMe.Sdk.Messaging.Dao.LoadMessagesResultData.Messages">
+            <summary>
+            The list of loaded messages.
+            </summary>
+        </member>
+        <member name="P:CkSoftware.GroupMe.Sdk.Messaging.Dao.LoadMessagesResultData.MessagesCount">
+            <summary>
+            The total avaliable number of messages.
+            </summary>
+        </member>
+        <member name="P:CkSoftware.GroupMe.Sdk.Messaging.Dao.LoadMessagesResultData.MessagesGapDetected">
+            <summary>
+            Defines if a gap was detected between now and the previous message loading. If this should be true, it is recommendet to do a complete message-cache refresh, as there were unloaded messages which cannot be loaded again.
+            </summary>
+        </member>
+        <member name="T:CkSoftware.GroupMe.Sdk.Messaging.Enums.MessageLoadDirection">
+            <summary>
+            Defines the direction for the message-loading.
+            </summary>
+        </member>
+        <member name="F:CkSoftware.GroupMe.Sdk.Messaging.Enums.MessageLoadDirection.Backward">
+            <summary>
+            Performs a backward loading (older messages).
+            </summary>
+        </member>
+        <member name="F:CkSoftware.GroupMe.Sdk.Messaging.Enums.MessageLoadDirection.Forward">
+            <summary>
+            Performs a forward loading (newer messages).
+            </summary>
+        </member>
+        <member name="F:CkSoftware.GroupMe.Sdk.Messaging.Enums.MessageLoadDirection.Current">
+            <summary>
+            Performs a actual messages loading (newest messages).
+            </summary>
+        </member>
+        <member name="T:CkSoftware.GroupMe.Sdk.Messaging.GroupMeDirectMessages">
+            <summary>
+            Manager class for direct messages. Handles loading, creating, liking and unliking direct messages.
+            </summary>
+        </member>
+        <member name="T:CkSoftware.GroupMe.Sdk.Messaging.GroupMeMessages">
+            <summary>
+            BaseClass for message-handling implementations. Provides basic methods for Create, Index, Like and Unlike commands.
+            </summary>
+        </member>
+        <member name="F:CkSoftware.GroupMe.Sdk.Messaging.GroupMeMessages.InitialLoadDone">
+            <summary>
+            Defines if the initial-load is completed successfully (and a scrolling can be used).
+            </summary>
+        </member>
+        <member name="F:CkSoftware.GroupMe.Sdk.Messaging.GroupMeMessages.NewestMessageId">
+            <summary>
+            Defines the newest loaded message id, used for scrolling.
+            </summary>
+        </member>
+        <member name="F:CkSoftware.GroupMe.Sdk.Messaging.GroupMeMessages.OldestMessageId">
+            <summary>
+            Defines the oldest loaded message id, used for scrolling.
+            </summary>
+        </member>
+        <member name="M:CkSoftware.GroupMe.Sdk.Messaging.GroupMeMessages.#ctor(CkSoftware.GroupMe.Sdk.Core.IWebApiAccess,System.String)">
+            <summary>
+            Instantiates a new <see cref="T:CkSoftware.GroupMe.Sdk.Messaging.GroupMeMessages"/> object.
+            </summary>
+            <param name="webApiAccess">The <see cref="T:CkSoftware.GroupMe.Sdk.Core.IWebApiAccess"/> to use for API communication.</param>
+            <param name="conversationId">The conversation id, used for likes and unlikes.</param>
+        </member>
+        <member name="M:CkSoftware.GroupMe.Sdk.Messaging.GroupMeMessages.CreateMessage(System.String,System.String,System.Collections.Generic.IEnumerable{CkSoftware.GroupMe.Sdk.Core.Dao.GroupMeAttachmentBase})">
+            <summary>
+            Creates a new message in this group.
+            </summary>
+            <param name="sourceGuid">
+            The sourceGuid of this message. This is an identifier of this message and should be unique, to
+            correctly identify duplicate submits.
+            </param>
+            <param name="text">The text to submit (optional if there is an attachment).</param>
+            <param name="attachments">A list of attachments to add to this mesasge.</param>
+            <returns>The created message-data.</returns>
+        </member>
+        <member name="M:CkSoftware.GroupMe.Sdk.Messaging.GroupMeMessages.LikeMessage(CkSoftware.GroupMe.Sdk.Core.Dao.GroupMeMessageData)">
+            <summary>
+            Likes the supplied message.
+            </summary>
+            <param name="message">The message to be liked.</param>
+            <returns>The awaitable task.</returns>
+        </member>
+        <member name="M:CkSoftware.GroupMe.Sdk.Messaging.GroupMeMessages.LikeMessage(System.String)">
+            <summary>
+            Likes the message with the supplied message id.
+            </summary>
+            <param name="messageId">The messageId of the message to like.</param>
+            <returns>The awaitable task.</returns>
+        </member>
+        <member name="M:CkSoftware.GroupMe.Sdk.Messaging.GroupMeMessages.LoadCurrentMessages">
+            <summary>
+            Loads the currently available messages. If there were messages loaded previously (located in LoadedMessages), they will
+            be cleared.
+            </summary>
+            <returns>The result of the message-load.</returns>
+        </member>
+        <member name="M:CkSoftware.GroupMe.Sdk.Messaging.GroupMeMessages.ScrollBackward">
+            <summary>
+            Moves max 20 messages backward, from the last known message available.
+            </summary>
+            <returns>The message-load result.</returns>
+        </member>
+        <member name="M:CkSoftware.GroupMe.Sdk.Messaging.GroupMeMessages.ScrollForward">
+            <summary>
+            Moves 20 messages forward, will do a big jump, if there are more than 20 new messages available in this group (will
+            create a messages-gap).
+            </summary>
+            <returns>The message-load result.</returns>
+        </member>
+        <member name="M:CkSoftware.GroupMe.Sdk.Messaging.GroupMeMessages.UnlikeMessage(CkSoftware.GroupMe.Sdk.Core.Dao.GroupMeMessageData)">
+            <summary>
+            Unlikes the supplied message.
+            </summary>
+            <param name="message">The message to be unliked.</param>
+            <returns>The awaitable task.</returns>
+        </member>
+        <member name="M:CkSoftware.GroupMe.Sdk.Messaging.GroupMeMessages.UnlikeMessage(System.String)">
+            <summary>
+            Unlikes the message with the supplied message id.
+            </summary>
+            <param name="messageId">The messageId of the message to unlike.</param>
+            <returns>The awaitable task.</returns>
+        </member>
+        <member name="M:CkSoftware.GroupMe.Sdk.Messaging.GroupMeMessages.GetCreateMessageCommand(System.String,System.String,System.Collections.Generic.IEnumerable{CkSoftware.GroupMe.Sdk.Core.Dao.GroupMeAttachmentBase})">
+            <summary>
+            When implemented, delivers a correctly instantiated CreateMessage command.
+            </summary>
+            <param name="sourceGuid">The source-guid to use in the command.</param>
+            <param name="text">The text to use in the command.</param>
+            <param name="attachments">The attachments to use in the command.</param>
+            <returns>The correctly constructed IWebApiCommand.</returns>
+        </member>
+        <member name="M:CkSoftware.GroupMe.Sdk.Messaging.GroupMeMessages.GetLoadMessagesCommandForDirection(CkSoftware.GroupMe.Sdk.Messaging.Enums.MessageLoadDirection)">
+            <summary>
+            When implemented, delivers a correctly instantiated IndexMessage command for a given direction.
+            </summary>
+            <param name="direction">The direction to use in the command.</param>
+            <returns>The correctly constructed IWebApiCommand.</returns>
+        </member>
+        <member name="M:CkSoftware.GroupMe.Sdk.Messaging.GroupMeMessages.ResetDataIfDirectionIsCurrent(CkSoftware.GroupMe.Sdk.Messaging.Enums.MessageLoadDirection)">
+            <summary>
+            Resets the last-result, oldest- and newest message and clears all loaded messages if the direction is set to current.
+            </summary>
+            <param name="direction">The direction to check.</param>
+            <returns>True if the data was reset, false if not.</returns>
+        </member>
+        <member name="P:CkSoftware.GroupMe.Sdk.Messaging.GroupMeMessages.LoadedMessages">
+            <summary>
+            Contains all currently loaded (in-memory) messages, ordered by CreatedAt. Will be cleared if LoadCurrentMessages() is
+            executed.
+            </summary>
+        </member>
+        <member name="M:CkSoftware.GroupMe.Sdk.Messaging.GroupMeDirectMessages.#ctor(CkSoftware.GroupMe.Sdk.Core.IWebApiAccess,System.String)">
+            <summary>
+            Instantiates a new <see cref="T:CkSoftware.GroupMe.Sdk.Messaging.GroupMeDirectMessages"/> object.
+            </summary>
+            <param name="webApiAccess">The <see cref="T:CkSoftware.GroupMe.Sdk.Core.IWebApiAccess"/> to use for API communication.</param>
+            <param name="memberId">The opponent member id with which the direct-message handling should be performed. Attention: needs to be the UserId property, not the Id property of a GroupMemberData object.</param>
+        </member>
+        <member name="M:CkSoftware.GroupMe.Sdk.Messaging.GroupMeDirectMessages.GetCreateMessageCommand(System.String,System.String,System.Collections.Generic.IEnumerable{CkSoftware.GroupMe.Sdk.Core.Dao.GroupMeAttachmentBase})">
+            <summary>
+            Instantiates a new CreateMessageCommand for direct messages.
+            </summary>
+            <param name="sourceGuid">The source-guid to use in the direct-message.</param>
+            <param name="text">The text to use in the direct-message.</param>
+            <param name="attachments">The attachments to use in the direct-message.</param>
+            <returns>The correctly constructed IWebApiCommand.</returns>
+        </member>
+        <member name="M:CkSoftware.GroupMe.Sdk.Messaging.GroupMeDirectMessages.GetLoadMessagesCommandForDirection(CkSoftware.GroupMe.Sdk.Messaging.Enums.MessageLoadDirection)">
+            <summary>
+            Instantiates a new IndexCommand for direct messages.
+            </summary>
+            <param name="direction">The direction of the IndexCommand.</param>
+            <returns>The correctly constructed IWebApiCommand.</returns>
+        </member>
+        <member name="T:CkSoftware.GroupMe.Sdk.Messaging.GroupMeGroupMessages">
+            <summary>
+            Manager class for group messages. Handles loading, creating, liking and unliking group messages.
+            </summary>
+        </member>
+        <member name="M:CkSoftware.GroupMe.Sdk.Messaging.GroupMeGroupMessages.#ctor(CkSoftware.GroupMe.Sdk.Core.IWebApiAccess,System.String)">
+            <summary>
+            Instantiates a new <see cref="T:CkSoftware.GroupMe.Sdk.Messaging.GroupMeGroupMessages"/> object.
+            </summary>
+            <param name="webApiAccess">The <see cref="T:CkSoftware.GroupMe.Sdk.Core.IWebApiAccess"/> to use for API communication.</param>
+            <param name="groupId">The group id for which the messages should be handled.</param>
+        </member>
+        <member name="M:CkSoftware.GroupMe.Sdk.Messaging.GroupMeGroupMessages.GetCreateMessageCommand(System.String,System.String,System.Collections.Generic.IEnumerable{CkSoftware.GroupMe.Sdk.Core.Dao.GroupMeAttachmentBase})">
+            <summary>
+            Instantiates a new CreateMessageCommand for group messages.
+            </summary>
+            <param name="sourceGuid">The source-guid to use in the group-message.</param>
+            <param name="text">The text to use in the group-message.</param>
+            <param name="attachments">The attachments to use in the group-message.</param>
+            <returns>The correctly constructed IWebApiCommand.</returns>
+        </member>
+        <member name="M:CkSoftware.GroupMe.Sdk.Messaging.GroupMeGroupMessages.GetLoadMessagesCommandForDirection(CkSoftware.GroupMe.Sdk.Messaging.Enums.MessageLoadDirection)">
+            <summary>
+            Instantiates a new IndexCommand for group messages.
+            </summary>
+            <param name="direction">The direction of the IndexCommand.</param>
+            <returns>The correctly constructed IWebApiCommand.</returns>
+        </member>
+        <member name="T:CkSoftware.GroupMe.Sdk.Messaging.NamespaceDoc">
+            <summary>
+            The <see cref="N:CkSoftware.GroupMe.Sdk.Messaging"/> namespace contains all messaging functionality (direct-messages, group-messages, likes) for the GroupMe.Sdk.
+            </summary>
+        </member>
+    </members>
+</doc>

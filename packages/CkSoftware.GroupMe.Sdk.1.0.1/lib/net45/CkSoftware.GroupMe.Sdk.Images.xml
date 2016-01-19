@@ -1,0 +1,112 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>CkSoftware.GroupMe.Sdk.Images</name>
+    </assembly>
+    <members>
+        <member name="T:CkSoftware.GroupMe.Sdk.Images.Commands.UploadPictureCommand">
+            <summary>
+            Upload picture command (GroupMe documentation: <see href="https://dev.groupme.com/docs/image_service#pictures_pictures" />).
+            </summary>
+        </member>
+        <member name="M:CkSoftware.GroupMe.Sdk.Images.Commands.UploadPictureCommand.#ctor(System.String,System.String,System.String)">
+            <summary>
+            Instantiate a new <see cref="T:CkSoftware.GroupMe.Sdk.Images.Commands.UploadPictureCommand"/> object by using a url which will be downloaded first.
+            </summary>
+            <param name="pictureUrl">The picture url to first download via web.</param>
+            <param name="name">The name of the picture. This will be used by the upload content-processing for naming a given HTTP content.</param>
+            <param name="fileName">The filename of the picture.</param>
+        </member>
+        <member name="M:CkSoftware.GroupMe.Sdk.Images.Commands.UploadPictureCommand.#ctor(System.IO.Stream,System.String,System.String)">
+            <summary>
+            Instantiate a new <see cref="T:CkSoftware.GroupMe.Sdk.Images.Commands.UploadPictureCommand"/> object by using a input stream of an image.
+            </summary>
+            <param name="pictureStream">The stream of the image.</param>
+            <param name="name">The name of the picture. This will be used by the content-processing for naming a given HTTP content.</param>
+            <param name="fileName">The filename of the picture.</param>
+        </member>
+        <member name="P:CkSoftware.GroupMe.Sdk.Images.Commands.UploadPictureCommand.CommandName">
+            <summary>
+            The name of the command to be executed.
+            </summary>
+        </member>
+        <member name="P:CkSoftware.GroupMe.Sdk.Images.Commands.UploadPictureCommand.HttpMethod">
+            <summary>
+            The http method to execute this command.
+            </summary>
+        </member>
+        <member name="P:CkSoftware.GroupMe.Sdk.Images.Commands.UploadPictureCommand.Parameters">
+            <summary>
+            The parameters which should be used on command execution.
+            </summary>
+        </member>
+        <member name="P:CkSoftware.GroupMe.Sdk.Images.Commands.UploadPictureCommand.CommandExecuted">
+            <summary>
+            Defines if the command is executed once.
+            </summary>
+        </member>
+        <member name="T:CkSoftware.GroupMe.Sdk.Images.Dao.UploadPictureResponse">
+            <summary>
+            The response of the <see cref="T:CkSoftware.GroupMe.Sdk.Images.Commands.UploadPictureCommand"/>.
+            </summary>
+        </member>
+        <member name="P:CkSoftware.GroupMe.Sdk.Images.Dao.UploadPictureResponse.Picture">
+            <summary>
+            The new picture data of the uploaded picture.
+            </summary>
+        </member>
+        <member name="P:CkSoftware.GroupMe.Sdk.Images.Dao.UploadPictureResponse.Meta">
+            <summary>
+            On the image-api there is no metadata available.
+            </summary>
+        </member>
+        <member name="T:CkSoftware.GroupMe.Sdk.Images.GroupMeImages">
+            <summary>
+            Managing class for GroupMe images.
+            </summary>
+        </member>
+        <member name="M:CkSoftware.GroupMe.Sdk.Images.GroupMeImages.#ctor(CkSoftware.GroupMe.Sdk.Core.IWebApiAccess)">
+            <summary>
+            Instantiate a new <see cref="T:CkSoftware.GroupMe.Sdk.Images.GroupMeImages"/> object.
+            </summary>
+            <param name="webApiAccess">The <see cref="T:CkSoftware.GroupMe.Sdk.Core.IWebApiAccess"/> to use for API calls.</param>
+        </member>
+        <member name="M:CkSoftware.GroupMe.Sdk.Images.GroupMeImages.CreatePicture(System.String,System.String)">
+            <summary>
+            Creates a new picture using the given web url and the given filename. Downloads the web-url content first and uploads it then to the GroupMe ImagingService.
+            </summary>
+            <param name="pictureUrl">The web URL of the image to upload.</param>
+            <param name="fileName">The filename of the image.</param>
+            <returns>The new created picture data which can be used in any avatar or message attachment.</returns>
+        </member>
+        <member name="M:CkSoftware.GroupMe.Sdk.Images.GroupMeImages.CreatePicture(System.IO.Stream,System.String)">
+            <summary>
+            Creates a new picture using the given stream data and the given filename.
+            </summary>
+            <param name="data">The data stream containing the image.</param>
+            <param name="fileName">The filename of the image.</param>
+            <returns>The new created picture data which can be used in any avatar or message attachment.</returns>
+        </member>
+        <member name="M:CkSoftware.GroupMe.Sdk.Images.GroupMeImages.CreatePictureAsync(System.String,System.String)">
+            <summary>
+            Asynchronous creates a new picture using the given web url and the given filename. Downloads the web-url content first and uploads it then to the GroupMe ImagingService.
+            </summary>
+            <param name="pictureUrl">The web URL of the image to upload.</param>
+            <param name="fileName">The filename of the image.</param>
+            <returns>An awaitable Task resulting in the new created picture data which can be used in any avatar or message attachment.</returns>
+        </member>
+        <member name="M:CkSoftware.GroupMe.Sdk.Images.GroupMeImages.CreatePictureAsync(System.IO.Stream,System.String)">
+            <summary>
+            Asynchronous creates a new picture using the given stream data and the given filename asynchronous.
+            </summary>
+            <param name="data">The data stream containing the image.</param>
+            <param name="fileName">The filename of the image.</param>
+            <returns>An awaitable Task resulting in the new created picture data which can be used in any avatar or message attachment.</returns>
+        </member>
+        <member name="T:CkSoftware.GroupMe.Sdk.Images.NamespaceDoc">
+            <summary>
+            The <see cref="N:CkSoftware.GroupMe.Sdk.Images"/> namespace contains all images functionality (upload image) for the GroupMe.Sdk.
+            </summary>
+        </member>
+    </members>
+</doc>
