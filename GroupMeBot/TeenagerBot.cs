@@ -5,7 +5,7 @@ using System.IO;
 
 namespace GroupMeBot
 {
-	public static class TeenagerBot : BotHelper
+	public class TeenagerBot : BotHelper
 	{
 		public static List<string> dirtywords = new List<string> ();
 		public static void init()
