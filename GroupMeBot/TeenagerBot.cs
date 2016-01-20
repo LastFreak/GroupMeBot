@@ -25,8 +25,9 @@ namespace GroupMeBot
 			Console.WriteLine (message);
 			foreach (string ha in haha) 
 			{
-				BotHelper.SendResponse ("Ha, er hat " + ha + " gesagt!");
+				SendResponse ("Ha, er hat " + ha + " gesagt!");
 			}
+			responseString = "<HTML><BODY>Last message:" + message + "</BODY></HTML>";
 		}
 		public static void SayDirtyWords()
 		{
@@ -35,7 +36,7 @@ namespace GroupMeBot
 			{
 				msg += word + ", ";
 			}
-			BotHelper.SendResponse (msg);
+			SendResponse (msg);
 		}
 		public static void SaveDirtyWords()
 		{

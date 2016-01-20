@@ -19,6 +19,11 @@ namespace GroupMeBot
 						TeenagerBot.SaveDirtyWords ();
 						TeenagerBot.init ();
 					}
+					if(command[1] == "remove" && command.Length == 3){
+						TeenagerBot.dirtywords.RemoveAll (command [2]);
+						TeenagerBot.SaveDirtyWords ();
+						TeenagerBot.init ();
+					}
 					if (command [1] == "reload") {
 						TeenagerBot.init ();
 					}

@@ -8,10 +8,10 @@ using System.Collections.Generic;
 
 namespace GroupMeBot
 {
-	public static class BotHelper
+	public class BotHelper
 	{
 		public static GroupMeBot.GroupMeMessage message;
-
+		public static string responseString = "<HTML><BODY> Bot is online.</BODY></HTML>";
 
 		public static void Listen()
 		{
@@ -44,7 +44,7 @@ namespace GroupMeBot
 
 			Thread.Sleep (500);
 
-			string responseString = "<HTML><BODY> 'Pubertärer Bot' is online.</BODY></HTML>";
+
 			byte[] buffer = System.Text.Encoding.UTF8.GetBytes(responseString);
 			HttpListenerResponse response = context.Response;
 			response.ContentLength64 = buffer.Length;
