@@ -30,7 +30,7 @@ namespace GroupMeBot
 				message = JsonConvert.DeserializeObject<GroupMeMessage> (s);
 				if (!message.Name.Contains ("Bot")) 
 				{
-					
+					Console.WriteLine (message.Name + ": " + message.Text);
 					TeenagerBot.CheckMessage (message.Text);
 
 					//Command Handling
@@ -44,7 +44,7 @@ namespace GroupMeBot
 
 			Thread.Sleep (500);
 
-			string responseString = "<HTML><BODY> Service is online. Haha, Penis.</BODY></HTML>";
+			string responseString = "<HTML><BODY> 'Pubertärer Bot' is online.</BODY></HTML>";
 			byte[] buffer = System.Text.Encoding.UTF8.GetBytes(responseString);
 			HttpListenerResponse response = context.Response;
 			response.ContentLength64 = buffer.Length;
@@ -60,7 +60,6 @@ namespace GroupMeBot
 			var uri = "https://api.groupme.com/v3/bots/post";
 			Message msg = new Message ("807a03eab25282446f763277cb", text);
 			string json = JsonConvert.SerializeObject (msg);
-			Console.Write (json);
 
 			ApiHelper.Post (uri, json);
 		}

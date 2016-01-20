@@ -5,14 +5,13 @@ using System.IO;
 
 namespace GroupMeBot
 {
-	public static class TeenagerBot
+	public static class TeenagerBot : BotHelper
 	{
-		public static List<string> dirtywords = new List<string>();
-
+		public static List<string> dirtywords = new List<string> ();
 		public static void init()
 		{
 			string[] lines = File.ReadAllLines ("dirtywords.txt");
-			TeenagerBot.dirtywords = new List<string> ();
+			TeenagerBot.dirtywords = new List<string> (); //Delete all existing words
 			foreach (string line in lines) 
 			{
 				TeenagerBot.dirtywords.Add (line);
@@ -31,10 +30,12 @@ namespace GroupMeBot
 		}
 		public static void SayDirtyWords()
 		{
+			string msg = "";
 			foreach (string word in dirtywords) 
 			{
-				BotHelper.SendResponse (word);
+				msg += word + ", ";
 			}
+			BotHelper.SendResponse (msg);
 		}
 		public static void SaveDirtyWords()
 		{

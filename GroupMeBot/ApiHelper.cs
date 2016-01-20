@@ -32,8 +32,6 @@ namespace GroupMeBot
 			using (var streamReader = new StreamReader (httpResponse.GetResponseStream ())) {
 				string result = streamReader.ReadToEnd ();
 				Debug.WriteLine (result);
-
-
 			}
 		}
 

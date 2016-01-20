@@ -11,11 +11,10 @@ namespace GroupMeBot
 {
 	class MainClass
 	{
-		//public static GroupMeBot.GroupMeMessage message;
 		public static void Main (string[] args)
 		{
 			TeenagerBot.init ();
-			BotHelper.Listen ();
+			TeenagerBot.Listen ();
 		}
 
 }
