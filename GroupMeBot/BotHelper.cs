@@ -13,11 +13,10 @@ namespace GroupMeBot
 	{
 		public static GroupMeBot.GroupMeMessage message;
 		public static string responseString = "<HTML><BODY> Bot is online.</BODY></HTML>";
-		public static AppSettingsReader config;
+		public static string bot_id = "";
 
 		public static void Listen()
 		{
-			config = new AppSettingsReader();
 			HttpListener listener = new HttpListener ();
 			listener.Prefixes.Add ("http://*:5000/");
 			listener.Start ();
@@ -61,7 +60,19 @@ namespace GroupMeBot
 		public static void SendResponse(string text)
 		{
 			var uri = "https://api.groupme.com/v3/bots/post";
-			Message msg = new Message ((string)config.GetValue("BOT_ID", typeof(string)), text);
+			if (bot_id == "") 
+			{
+				if (!File.Exists("config.txt"))
+				{
+					Console.WriteLine ("Bot Id:");
+					using (StreamWriter writer = File.CreateText ("config.txt")) 
+					{
+						writer.WriteLine (Console.ReadLine ());
+					}
+				}
+					bot_id = File.ReadAllLines ("config.txt") [0];
+			}
+			Message msg = new Message (bot_id, text);
 			string json = JsonConvert.SerializeObject (msg);
 
 			ApiHelper.Post (uri, json);
