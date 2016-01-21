@@ -1,10 +1,11 @@
 ﻿<Properties StartupItem="GroupMeBot\GroupMeBot.csproj">
   <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug|x86" />
-  <MonoDevelop.Ide.Workbench ActiveDocument="GroupMeBot\Commands.cs">
+  <MonoDevelop.Ide.Workbench ActiveDocument="GroupMeBot\TeenagerBot.cs">
     <Files>
       <File FileName="GroupMeBot\Program.cs" Line="18" Column="4" />
-      <File FileName="GroupMeBot\Commands.cs" Line="23" Column="27" />
-      <File FileName="GroupMeBot\TeenagerBot.cs" Line="27" Column="5" />
+      <File FileName="GroupMeBot\Commands.cs" Line="23" Column="36" />
+      <File FileName="GroupMeBot\TeenagerBot.cs" Line="24" Column="69" />
+      <File FileName="GroupMeBot\BotHelper.cs" Line="11" Column="8" />
     </Files>
   </MonoDevelop.Ide.Workbench>
   <MonoDevelop.Ide.DebuggingService.Breakpoints>

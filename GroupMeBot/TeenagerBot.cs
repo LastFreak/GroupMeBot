@@ -22,7 +22,6 @@ namespace GroupMeBot
 		{
 			message = message.ToLower ();
 			var haha = dirtywords.Where (x => message.Contains(x.ToLower()));
-			Console.WriteLine (message);
 			foreach (string ha in haha) 
 			{
 				SendResponse ("Ha, er hat " + ha + " gesagt!");

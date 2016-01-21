@@ -5,6 +5,7 @@ using System.IO;
 using System.Threading;
 using System.Linq;
 using System.Collections.Generic;
+using System.Configuration;
 
 namespace GroupMeBot
 {
@@ -12,9 +13,11 @@ namespace GroupMeBot
 	{
 		public static GroupMeBot.GroupMeMessage message;
 		public static string responseString = "<HTML><BODY> Bot is online.</BODY></HTML>";
+		public static AppSettingsReader config;
 
 		public static void Listen()
 		{
+			config = new AppSettingsReader();
 			HttpListener listener = new HttpListener ();
 			listener.Prefixes.Add ("http://*:5000/");
 			listener.Start ();
@@ -58,7 +61,7 @@ namespace GroupMeBot
 		public static void SendResponse(string text)
 		{
 			var uri = "https://api.groupme.com/v3/bots/post";
-			Message msg = new Message ("807a03eab25282446f763277cb", text);
+			Message msg = new Message ((string)config.GetValue("BOT_ID", typeof(string)), text);
 			string json = JsonConvert.SerializeObject (msg);
 
 			ApiHelper.Post (uri, json);
